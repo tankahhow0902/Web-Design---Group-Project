@@ -1,0 +1,9 @@
+.color-plate {
+    justify-content: center;
+    text-align: center;
+}
+.color-plate p {
+    margin: 5px 0;
+    padding: 40px 0;
+    width: 100%;
+}
