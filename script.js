@@ -1,4 +1,22 @@
-// 商品列表 (8 个)
+//检查当前页面
+function getPageID(){
+  const pageID = document.querySelector('meta[name="page-id"]');
+  if(pageID) return pageID.content;
+}
+
+
+function scrollToTarget(TargetID){
+  document.getElementById(TargetID).scrollIntoView({ behavior: "smooth" });
+}
+
+
+
+
+
+
+
+
+
 const products = [
     { id: 1, name: "Product A", price: 100 },
     { id: 2, name: "Product B", price: 120 },

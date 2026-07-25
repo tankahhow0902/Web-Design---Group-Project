@@ -1,6 +1,21 @@
+:root {
+  --peach: #FFBE91;       /* 柔和桃色 */
+  --apricot: #FFDDB0;     /* 杏色 */
+  --cream: #FFFCE1;       /* 奶油白 */
+  --sky-blue: #CFEBFF;    /* 天空蓝 */
+  --coral: #FFB6A6;       /* 珊瑚粉 */
+  --sand: #FFEBD3;        /* 浅沙色 */
+  --mint-green: #9BCEC1;  /* 薄荷绿 */
+  --ocean-blue: #67A2C5;  /* 海洋蓝 */
+  --khaki: #DCCCAC;       /* 卡其色 */
+  --ivory: #FFF8EC;       /* 象牙白 */
+}
 * { margin: 0; padding: 0; }
 
 body::-webkit-scrollbar { display: none; }
+body {
+  background-color: #FFDDB0;
+}
 
 header {
   display: flex;
@@ -24,7 +39,9 @@ nav {
   align-items: center;
   height: 5rem;
   padding: 10px 20px;
-  background-color: #f5f5f5;
+  background-color: #FFB6A6;
+  border: 5px #FFBE91;
+  border-style: solid hidden solid hidden;
   position: sticky;
   top: 0;
   z-index: 10;
@@ -66,6 +83,5 @@ main {
 }
 
 footer {
-  background-color: #f5f5f5;
   height: 120px;
 }
