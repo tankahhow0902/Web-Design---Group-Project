@@ -7,3 +7,96 @@
     padding: 40px 0;
     width: 100%;
 }
+
+h2 {
+  text-align: center;
+  text-decoration: underline;
+}
+.empty-cart {
+  text-align: center;
+}
+
+table, th, td {
+  font-size: 22px;
+  padding: 30px;
+}
+
+.cart-table {
+  width: 100%;
+  margin: 20px auto;
+  text-align: center;
+}
+.cart-table tr:nth-child(1) th:nth-child(1) {
+  text-align: left;
+  padding-left: 60px;
+}
+.cart-table tr:nth-child(1) {
+  text-decoration: underline;
+}
+
+.item-cell {
+  text-align: left;
+  padding-left: 10px;
+}
+.item-cell .item-name {
+  font-size: 22px;
+  font-weight: bold;
+}
+.item-cell .unit-price {
+  padding-left: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+.multiply-cell {
+  text-align: center;
+  font-weight: bold;
+}
+
+.quantity-cell {
+  text-align: center;
+}
+.qty-btn {
+  width: 32px;
+  height: 32px;
+  font-size: 24px;
+  line-height: 14px;
+  text-align: center;
+  cursor: pointer;
+  border: hidden;
+}
+.qty-btn:hover {
+  background-color: lightblue;
+}
+
+.price-cell {
+  text-align: right;
+  padding-right: 10px;
+}
+
+.remove-cell {
+  text-align: left;
+  padding-left: 0;
+}
+.remove-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 22px;
+  color: #ccc;
+}
+.remove-btn:hover {
+  color: red;
+  scale: 0.8;
+}
+
+.total-label {
+  text-align: right;
+  padding-right: 10px;
+  font-weight: bold;
+  font-size: 18px;
+}
+.total-amount {
+  text-align: center;
+  font-weight: bold;
+}

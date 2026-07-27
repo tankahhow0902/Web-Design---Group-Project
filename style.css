@@ -13,12 +13,15 @@
 * { margin: 0; padding: 0; }
 
 body::-webkit-scrollbar { display: none; }
-body { background-color: var(--ivory); }
+body {
+  background-color: var(--ivory);
+}
 
 header {
   display: flex;
   justify-content: center;
   text-align: center;
+  background-color: var(--mint-green);
   height: 8rem;
 }
 .header-img {
@@ -37,8 +40,8 @@ nav {
   align-items: center;
   height: 5rem;
   padding: 10px 20px;
-  background-color: var(--apricot);
-  border: 5px var(--khaki);
+  background-color: var(--ocean-blue);
+  border: 5px var(--sand);
   border-style: solid hidden solid hidden;
   position: sticky;
   top: 0;
@@ -77,9 +80,13 @@ nav {
 }
 
 main {
-  height: 120vh;
+  height: max-content;
+  margin-bottom: 5vh;
 }
 
 footer {
-  height: 120px;
+  height: 300px;
+  background-color: var(--mint-green);
+  bottom: 0;
+  z-index: 10;
 }
