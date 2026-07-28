@@ -49,6 +49,19 @@ function removeFromCart(itemId) {
   renderCart();
 }
 
+function confirmRemoveFromCart(itemId) {
+  const item = cart.find(p => p.id === itemId);
+  document.getElementById("modal-text").innerText = `Remove ${item.name} from cart?`;
+  document.getElementById("modal-overlay").style.display = "block";
+  document.getElementById("modal-confirm").onclick = function() {
+    removeFromCart(itemId);
+    document.getElementById("modal-overlay").style.display = "none";
+  };
+  document.getElementById("modal-cancel").onclick = function() {
+    document.getElementById("modal-overlay").style.display = "none";
+  };
+}
+
 function changeQuantity(itemId, delta) {
   const item = cart.find(p => p.id === itemId);
   if (!item) return;
@@ -88,7 +101,7 @@ function renderCart() {
           <button class="qty-btn" onclick="changeQuantity(${item.id}, 1)">+</button>
         </td>
         <td class="price-cell">RM${item.price * item.qty}</td>
-        <td class="remove-cell"> <button class="remove-btn" onclick="removeFromCart(${item.id})">X</button> </td>
+        <td class="remove-cell"> <button class="remove-btn" onclick="confirmRemoveFromCart(${item.id})">X</button> </td>
       </tr>
     `;
   });
