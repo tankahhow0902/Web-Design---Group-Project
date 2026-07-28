@@ -1,38 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="page-id" content="index">
-  <title>index</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <img class="header-img" src="img/logo.png">
-    <h1>Shop Name</h1>
-  </header>
-  <nav>
-    <div class="nav-links">
-      <a href="#">链接1</a> | 
-      <a href="#">链接2</a> | 
-      <a href="#">链接3</a> 
-    </div>
-    <div class="nav-icons">
-      <a href="index.html" class="nav-img"><img src="img/home.png" id="active" alt="Home" /></a>
-      <a href="aboutUs.html" class="nav-img"><img src="img/aboutUs.png" alt="Home" /></a>
-      <a href="products.html" class="nav-img"><img src="img/products.png" alt="Home" /></a>
-      <a href="cart.html" class="nav-img"><img src="img/cart.png" alt="Home" /></a>
-    </div>
-  </nav>
 
-  <main>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="page-id" content="index">
+        <title>index</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="index.css">
+    </head>
 
-  </main>
+    <body>
+        <header>
+            <img class="header-img" src="img/logo.png">
+            <h1>Shop Name</h1>
+        </header>
 
-  <footer>
+        <nav>
+            <div class="nav-links">
+                <a href="#form-area">链接1</a> | 
+                <a href="#">链接2</a> | 
+                <a href="#">链接3</a> 
+            </div>
 
-  </footer>
+            <div class="nav-icons">
+                <a href="index.html" class="nav-img"><img src="img/home.png" id="active" alt="Home" /></a>
+                <a href="aboutUs.html" class="nav-img"><img src="img/aboutUs.png" alt="Home" /></a>
+                <a href="products.html" class="nav-img"><img src="img/products.png" alt="Home" /></a>
+                <a href="cart.html" class="nav-img"><img src="img/cart.png" alt="Home" /></a>
+            </div>
+        </nav>
 
-  <script src="script.js"></script>
-</body>
+        <main>
+            <div class="page hero">
+                <div class="hero-text">
+                    <h2>Make Every Moment Cuddly</h2>
+                    <p>Discover our adorable collection of soft toys, perfect for gifts, comfort, and creating happy memories.</p>
+                    <a onclick="scrollToTarget('form-area')" class="btn">Shop Now</a>
+                </div>
+
+                <div class="hero-image">
+                    <img src="#" alt="Cute soft toys">
+                </div>
+            </div>
+
+            <div class="page best-seller">
+                <h2>Best Seller</h2>
+                <div class="podium">
+                    <div class="seller-card second">
+                        <div class="seller-image">
+                            <img src="#" alt="Pikachu Plush Toy">
+                        </div>
+                        <h3>Pikachu Plush Toy</h3>
+                    </div>
+
+                    <div class="seller-card first">
+                        <div class="seller-image">
+                            <img src="#" alt="Hello Kitty Plush Toy">
+                        </div>
+                        <h3>Hello Kitty Plush Toy</h3>
+                    </div>
+
+                    <div class="seller-card third">
+                        <div class="seller-image">
+                            <img src="#" alt="Nezuko Plush Toy">
+                        </div>
+                        <h3>Nezuko Plush Toy</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page banner">
+                <a href="#" class="series-banner">
+                    <div class="banner-image s">
+                        <img src="#" alt="Sanrio soft toys">
+                    </div>
+
+                    <div class="banner-text">
+                        <h2>Sanrio</h2>
+                        <p>Discover adorable and lovable characters that bring sweetness and joy to every moment.</p>
+                    </div>
+                </a>
+
+                <a href="#" class="series-banner">
+                    <div class="banner-text">
+                        <h2>Pokémon</h2>
+                        <p>Catch your favourite Pokémon and bring home a cuddly companion for every adventure.</p>
+                    </div>
+
+                    <div class="banner-image p">
+                        <img src="#" alt="Pokémon soft toys">
+                    </div>
+                </a>
+
+                <a href="#" class="series-banner">
+                    <div class="banner-image d">
+                        <img src="#" alt="Demon Slayer soft toys">
+                    </div>
+
+                    <div class="banner-text">
+                        <h2>Demon Slayer</h2>
+                        <p>Bring home your favourite Demon Slayer characters and carry their courage wherever you go.</p>
+                    </div>
+                </a>
+
+                <a href="#" class="series-banner">
+                    <div class="banner-text">
+                        <h2>Wuthering Waves</h2>
+                        <p>Explore a world of unique characters and discover companions inspired by exciting adventures.</p>
+                    </div>
+
+                    <div class="banner-image w">
+                        <img src="#" alt="Wuthering Waves soft toys">
+                    </div>
+                </a>
+            </div>
+
+            <div class="page form">
+                <div class="form-image">
+                    <img src="#" alt="Bear Image">
+                </div>
+
+                <div class="form-area" id="form-area">
+                    <div class="form-content">
+                        <p class="form-title">
+                            Fill in your detail & be the first to know about our latest offers!
+                        </p>
+
+                        <form id="form">
+                            <label for="name">Name: </label>
+                            <input type="text" id="name" name="name">
+
+                            <label for="email">Email: </label>
+                            <input type="email" id="email" name="email">
+
+                            <label for="phone">Phone: </label>
+                            <input type="tel" id="phone" name="phone">
+
+                            <button type="submit">Join Now</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+
+        </footer>
+        
+        <script src="script.js"></script>
+        <script src="index.js"></script>
+    </body>
 </html>
