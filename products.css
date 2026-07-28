@@ -1,1 +1,158 @@
+:root {
+  --peach: #FFBE91;       /* 柔和桃色 */
+  --apricot: #FFDDB0;     /* 杏色 */
+  --cream: #FFFCE1;       /* 奶油白 */
+  --sky-blue: #CFEBFF;    /* 天空蓝 */
+  --coral: #FFB6A6;       /* 珊瑚粉 */
+  --sand: #FFEBD3;        /* 浅沙色 */
+  --mint-green: #9BCEC1;  /* 薄荷绿 */
+  --ocean-blue: #67A2C5;  /* 海洋蓝 */
+  --khaki: #DCCCAC;       /* 卡其色 */
+  --ivory: #FFF8EC;       /* 象牙白 */
+}
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box;
+}
 
+body::-webkit-scrollbar { display: none; }
+body { background-color: var(--ivory); }
+
+header {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  height: 8rem;
+}
+.header-img {
+  width: 60px;
+  height: auto;
+}
+
+header h1 {
+  font-size: 24px;
+  color: #333;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;
+  padding: 10px 20px;
+  background-color: var(--apricot);
+  border: 5px var(--khaki);
+  border-style: solid hidden solid hidden;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+}
+
+.nav-icons {
+  margin-left: auto;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-icons img {
+  width: 40px;
+  height: auto;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.nav-icons #active, .nav-icons img:hover {
+  filter: grayscale(0%);
+}
+
+main {
+  min-height: 100vh;
+}
+
+.series{
+  width:90%;
+  margin:0 auto 30px;
+}
+
+h2::before{
+  content:"\2605 ";
+}
+
+h2{
+font-size:24px;
+padding-left:50px;
+}
+
+.product-container{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 30px;
+  margin:30px 0;
+}
+
+.product-image{
+  width:100%;
+  height: 280px;
+
+  background-color: #333;
+}
+
+.product-image img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.product-info{
+  text-align: center;
+  padding:10px;
+  margin-top: 24px;
+}
+
+.product-name{
+  margin:0 0 15px ;
+}
+
+.product-price{
+  font-size: 18px;
+}
+
+.add-cart {
+  display: none;
+  border: none;
+  background-color: transparent;
+  font-size: 18px;
+  font-weight: bold;
+  color: rgb(153, 189, 220);
+  cursor: pointer;
+}
+
+/*hide price in anywhere inside info area*/
+.product-info:hover .product-price {
+  display: none;
+}
+
+/*show button*/
+.product-info:hover .add-cart {
+  display: inline-block;
+}
+
+footer {
+  height: 120px;
+}
