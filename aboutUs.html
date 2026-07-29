@@ -14,9 +14,9 @@
   </header>
   <nav>
     <div class="nav-links">
-      <a href="#">链接1</a> | 
-      <a href="#">链接2</a> | 
-      <a href="#">链接3</a> 
+      <a href="#about-shop">About Shop</a> | 
+      <a href="#about-designer">About Designer</a> | 
+      <a href="#events">Events</a> 
     </div>
     <div class="nav-icons">
       <a href="index.html" class="nav-img"><img src="img/home.png" alt="Home" /></a>
@@ -28,17 +28,17 @@
 
   <main>
 	<br><br>
-	<h2>About Shop</h2>
+	<h2 id="about-shop">About Shop</h2>
 	<div class="shop-img">
 		<img src="img/shop.png" alt="Shop"><br>
 		<p>	Our shop was build at Kajang in 2026. </p> 
 	</div><br>
 	
+	<h2 id="about-designer">About Designer</h2>
 	<div class="designer-slider">
-	  <!-- 左箭头 -->
+
 	  <div class="click-zone left" onclick="plusSlides(-1)"></div>
 
-	  <!-- 幻灯片内容 -->
 	  <div class="about-designer">
 		<div class="designer-img">
 			<img src="img/designer1.png" alt="Designer 1">
@@ -79,11 +79,9 @@
 		</div>
 	  </div>
 
-	  <!-- 右箭头 -->
 	  <div class="click-zone right" onclick="plusSlides(1)"></div>
 	</div>
 
-	<!-- 圆点导航 -->
 	<div style="text-align:center">
 	  <span class="dot" onclick="currentSlide(1)"></span>
 	  <span class="dot" onclick="currentSlide(2)"></span>
@@ -91,7 +89,7 @@
 	  <span class="dot" onclick="currentSlide(4)"></span>
 	</div>
 	
-	<h2>Events</h2>
+	<h2 id="events">Events</h2>
 	<div class="events">
 	  <div class="event-card">
 		<img src="img/event1.jpg" alt="Chagee">
