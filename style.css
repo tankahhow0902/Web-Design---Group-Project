@@ -85,28 +85,57 @@ main {
 }
 
 footer {
-  background-color: var(--mint-green);
-  bottom: 0;
+  background-color: #8A5F41;
+  display: grid;
+  grid-template-columns: 25% 40% 35%;
   z-index: 10;
-  height: 260px;
-}
-
-.footer-container {
-  margin: 0 100px;
-  display: inline-grid;
-  grid-template-columns: 1fr 1.5fr 1fr;
 }
 
 .footer {
-  padding: 30px 20px 30px 20px;
+  padding-top: 20px;
+  padding-left: 2rem;
+}
+.footer h3 {
+  margin-bottom: 1rem;
+}
+.footer p, .footer a {
+  text-decoration: none;
+  color: black;
+}
+.footer p {
+  margin-top: 1rem;
 }
 
-.footer.center {
-  border: black 2px;
-  border-style: hidden solid hidden solid;
+.footer.left {
+  padding-left: 5rem;
 }
-
 .footer-img {
   width: 200px;
   height: 200px;
 }
+
+.social-item, .contact-item {
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  max-width: 200px;
+}
+.contact-item img, .social-item img { 
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.footer.center {
+  border: black 3px;
+  border-style: hidden dotted hidden dotted;
+}
+.contact-item {
+  padding: 5px 20px;
+}
+
+.social-item {
+  padding: 10px 20px;
+}
+.contact-item img { width: 32px;}
+.social-item img { width: 24px; }
+.contact-item:hover, .social-item:hover { transform: scale(1.05); }

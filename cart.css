@@ -1,24 +1,23 @@
-.color-plate {
-    justify-content: center;
-    text-align: center;
-}
-.color-plate p {
-    margin: 5px 0;
-    padding: 40px 0;
-    width: 100%;
+:root {
+  --peach: #FFBE91;       /* 柔和桃色 */
+  --apricot: #FFDDB0;     /* 杏色 */
+  --cream: #FFFCE1;       /* 奶油白 */
+  --sky-blue: #CFEBFF;    /* 天空蓝 */
+  --coral: #FFB6A6;       /* 珊瑚粉 */
+  --sand: #FFEBD3;        /* 浅沙色 */
+  --mint-green: #9BCEC1;  /* 薄荷绿 */
+  --ocean-blue: #67A2C5;  /* 海洋蓝 */
+  --khaki: #DCCCAC;       /* 卡其色 */
+  --ivory: #FFF8EC;       /* 象牙白 */
 }
 
-main {
-  min-height: 50vh;
-}
+main { min-height: 50vh; }
 
 h2 {
   text-align: center;
   text-decoration: underline;
 }
-.empty-cart {
-  text-align: center;
-}
+.empty-cart { text-align: center; }
 
 table, th, td {
   font-size: 22px;
@@ -68,20 +67,12 @@ table, th, td {
   text-align: center;
   cursor: pointer;
   border: hidden;
-}
-.qty-btn:hover {
-  background-color: lightblue;
+  background-color: var(--sky-blue);
 }
 
-.price-cell {
-  text-align: right;
-  padding-right: 20px;
-}
+.price-cell { text-align: right; padding-right: 20px; }
 
-.remove-cell {
-  text-align: left;
-  padding-left: 0;
-}
+.remove-cell { text-align: left; padding-left: 0; }
 .remove-btn {
   background: none;
   border: none;
@@ -104,8 +95,6 @@ table, th, td {
   text-align: center;
   font-weight: bold;
 }
-
-
 
 .modal-overlay {
   display: none;
@@ -146,6 +135,7 @@ table, th, td {
 }
 
 .cancel-btn {
+  margin-top: 5px;
   background: #ccc;
   color: #333;
   border: none;
@@ -156,3 +146,24 @@ table, th, td {
 .cancel-btn:hover {
   background: #999;
 }
+
+.checkout-container {
+  width: 80%;
+  margin: 20px auto;
+  text-align: right;
+}
+.checkout-image {
+  width: 280px;
+  height: 280px;
+}
+
+.checkout-btn {
+  background-color: var(--sky-blue);
+  border: none;
+  padding: 20px 30px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.qty-btn:hover, .checkout-btn:hover { background-color: var(--ocean-blue); }

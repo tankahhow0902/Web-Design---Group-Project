@@ -98,6 +98,25 @@ function changeQuantity(itemId, delta) {
     renderCart();
   }
 }
+function checkout(amount) {
+  document.getElementById("checkout-value").innerText = `RM ${amount}`;
+  document.getElementById("checkout-overlay").style.display = "block";
+  document.getElementById("checkout-close").onclick = closeModal;
+  function handleKey(e) {
+    if (e.key === "Escape") closeModal();
+  }
+  function mouseWheelHandler(e) {
+    e.preventDefault();
+  }
+  document.addEventListener("keydown", handleKey);
+  document.addEventListener('wheel', mouseWheelHandler, { passive: false });
+
+  function closeModal() {
+    document.getElementById("checkout-overlay").style.display = "none";
+    document.removeEventListener('keydown', handleKey);
+    document.removeEventListener('wheel', mouseWheelHandler);
+  }
+}
 
 function renderCart() {
   const container = document.getElementById("item-container");
@@ -140,7 +159,12 @@ function renderCart() {
       <td></td>
     </tr>
   `;
-  html += "</table>";
+  html += `
+    </table>
+    <div class="checkout-container">
+      <button class="checkout-btn" onclick="checkout(${total})">Check Out</button>
+    </div>
+   `;
   container.innerHTML = html;
 }
 

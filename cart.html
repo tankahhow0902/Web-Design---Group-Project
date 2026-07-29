@@ -28,39 +28,25 @@
   </nav>
 
   <main>
-    <div class="color-plate">
-      <p style="background-color: #FFBE91;">--peach 柔和桃色(#FFBE91)</p>
-      <p style="background-color: #FFDDB0;">--apricot 杏色 (#FFDDB0)</p>
-      <p style="background-color: #FFFCE1;">--cream 奶油白 (#FFFCE1)</p>
-      <p style="background-color: #CFEBFF;">--sky-blue 天空蓝 (#CFEBFF)</p>
-      <p style="background-color: #FFB6A6;">--coral 珊瑚粉 (#FFB6A6)</p>
-      <p style="background-color: #FFEBD3;">--sand 浅沙色 (#FFEBD3)</p>
-      <p style="background-color: #9BCEC1;">--mint-green 薄荷绿 (#9BCEC1)</p>
-      <p style="background-color: #67A2C5;">--ocean-blue 海洋蓝 (#67A2C5)</p>
-      <p style="background-color: #DCCCAC;">#--khaki 卡其色 (#DCCCAC)</p>
-      <p style="background-color: #FFF8EC;">--ivory 象牙白 (#FFF8EC)</p>
-    </div>
     <h2>Your Cart</h2>
     <div id="item-container"></div>
   </main>
 
   <footer>
-    <div class="footer-container">
-      <div class="footer left"><img class="footer-img" src="img/footer.png"></div>
+    <div class="footer left"><img class="footer-img" src="img/footer.png"></div>
     
-      <div class="footer center">
-        <h3>Contact Us</h3>
-        <p>📞 <a href="tel:+601139022131">(+60) 1139022131</a></p>
-        <p>📞 <a href="tel:+60123456789">(+60) 123456789</a></p>
-        <p>🏠 Block C, Lot 5, Jalan Bukit,<br> Seksyen 10, Ulu Langat,<br>43000, Selangor</p>
-      </div>
+    <div class="footer center">
+      <h3>Contact Us</h3>
+      <span class="contact-item"><a href="tel:+601139022131"><img src="img/whatsapp.png">(+60) 11-39022131</a></span>
+      <span class="contact-item"><a href="tel:+60123456789"><img src="img/whatsapp.png">(+60) 12-3456789</a></span>
+      <p>Block C, Lot 5, Jalan Bukit, Seksyen 10, Ulu Langat,<br> 43000, Selangor</p>
+    </div>
     
-      <div class="footer right">
-        <h3>Follow Us</h3>
-        <p>🌐 <a href="https://facebook.com" target="_blank">Facebook</a></p>
-        <p>📸 <a href="https://instagram.com" target="_blank">Instagram</a></p>
-        <p>© 2026 Your Company. All rights reserved.</p>
-      </div>
+    <div class="footer right">
+      <h3>Follow Us</h3>
+      <span class="social-item"><a href="https://facebook.com" target="_blank"><img src="img/facebook.png">Facebook</a></span>
+      <span class="social-item"><a href="https://instagram.com" target="_blank"><img src="img/insta.png">Instagram</a></span>
+      <p>© 2026 Your Company. All rights reserved.</p>
     </div>
   </footer>
 
@@ -71,6 +57,14 @@
         <button id="modal-confirm" class="confirm-btn">YES</button>
         <button id="modal-cancel" class="cancel-btn">Cancel</button>
       </div>
+    </div>
+  </div>
+
+  <div id="checkout-overlay" class="modal-overlay">
+    <div class="modal-box">
+      <img src="img/checkout.png" class="checkout-image">
+      <p id="checkout-value"></p>
+      <button id="checkout-close" class="cancel-btn">Cancel</button>
     </div>
   </div>
 
