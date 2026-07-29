@@ -5,6 +5,7 @@
   <meta name="page-id" content="aboutUs">
   <title>index</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="aboutUs.css">
 </head>
 <body>
   <header>
@@ -19,20 +20,92 @@
     </div>
     <div class="nav-icons">
       <a href="index.html" class="nav-img"><img src="img/home.png" alt="Home" /></a>
-      <a href="aboutUs.html" class="nav-img"><img src="img/aboutUs.png" id="active" alt="Home" /></a>
-      <a href="products.html" class="nav-img"><img src="img/products.png" alt="Home" /></a>
-      <a href="cart.html" class="nav-img"><img src="img/cart.png" alt="Home" /></a>
+      <a href="aboutUs.html" class="nav-img"><img src="img/aboutUs.png" id="active" alt="AboutUS" /></a>
+      <a href="products.html" class="nav-img"><img src="img/products.png" alt="Products" /></a>
+      <a href="cart.html" class="nav-img"><img src="img/cart.png" alt="Cart" /></a>
     </div>
   </nav>
 
   <main>
+	<br><br>
+	<h2>About Shop</h2>
+	<div class="shop-img">
+		<img src="img/shop.png" alt="Shop"><br>
+		<p>	Our shop was build at Kajang in 2026. </p> 
+	</div><br>
+	
+	<div class="designer-slider">
+	  <!-- 左箭头 -->
+	  <div class="click-zone left" onclick="plusSlides(-1)"></div>
 
+	  <!-- 幻灯片内容 -->
+	  <div class="about-designer">
+		<img src="img/designer1.png" alt="Designer 1">
+		<div class="designer-text">
+		  <h3>Chiew Zi Xuan</h3>
+		  <p>I'm the big boss!</p>
+		</div>
+	  </div>
+
+	  <div class="about-designer">
+		<img src="img/designer2.png" alt="Designer 2">
+		<div class="designer-text">
+		  <h3>Tan Kah How</h3>
+		  <p>I'm the shareholder!</p>
+		</div>
+	  </div>
+
+	  <div class="about-designer">
+		<img src="img/designer3.png" alt="Designer 3">
+		<div class="designer-text">
+		  <h3>Wang Ka Hui</h3>
+		  <p>I'm the CEO!</p>
+		</div>
+	  </div>
+
+	  <div class="about-designer">
+		<img src="img/designer4.png" alt="Designer 4">
+		<div class="designer-text">
+		  <h3>Choo Yue Lung</h3>
+		  <p>I'm the staff!</p>
+		</div>
+	  </div>
+
+	  <!-- 右箭头 -->
+	  <div class="click-zone right" onclick="plusSlides(1)"></div>
+	</div>
+
+	<!-- 圆点导航 -->
+	<div style="text-align:center">
+	  <span class="dot" onclick="currentSlide(1)"></span>
+	  <span class="dot" onclick="currentSlide(2)"></span>
+	  <span class="dot" onclick="currentSlide(3)"></span>
+	  <span class="dot" onclick="currentSlide(4)"></span>
+	</div>
+	
+	<h2>Events</h2>
+	<div class="events">
+	  <div class="event-card">
+		<img src="img/event1.jpg" alt="Chagee">
+		<div class="event-name">Chagee</div>
+	  </div>
+	  <div class="event-card">
+		<img src="img/event2.jpg" alt="Bukit Bintang Road Show">
+		<div class="event-name">Bukit Bintang Road Show</div>
+	  </div>
+	  <div class="event-card">
+		<img src="img/event3.jpg" alt="Japan Pop Up Booth">
+		<div class="event-name">Japan Pop Up Booth</div>
+	  </div>
+	</div>
+
+	
   </main>
 
   <footer>
 
   </footer>
 
-  <script src="script.js"></script>
+  <script src="aboutUs.js"></script>
 </body>
 </html>
