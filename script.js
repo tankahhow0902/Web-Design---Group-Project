@@ -18,14 +18,22 @@ function scrollToTarget(TargetID){
 
 
 const products = [
-  { id: 1, name: "Product A", price: 100 },
-  { id: 2, name: "Product B", price: 120 },
-  { id: 3, name: "Product C", price: 80 },
-  { id: 4, name: "Product D", price: 150 },
-  { id: 5, name: "Product E", price: 200 },
-  { id: 6, name: "Product F", price: 90 },
-  { id: 7, name: "Product G", price: 110 },
-  { id: 8, name: "Product H", price: 130 }
+  { id: 1, name: "Hello Kitty", price: 100 },
+  { id: 2, name: "Kuromi", price: 120 },
+  { id: 3, name: "Melody", price: 80 },
+  { id: 4, name: "S1P4", price: 150 },
+  { id: 5, name: "S2P1", price: 200 },
+  { id: 6, name: "S2P2", price: 90 },
+  { id: 7, name: "S2P3", price: 110 },
+  { id: 8, name: "S2P4", price: 130 },
+  { id: 9, name: "S3P1", price: 100 },
+  { id: 10, name: "S3P2", price: 120 },
+  { id: 11, name: "S3P3", price: 80 },
+  { id: 12, name: "S3P4", price: 150 },
+  { id: 13, name: "S4P1", price: 200 },
+  { id: 14, name: "S4P2", price: 90 },
+  { id: 15, name: "S4P3", price: 110 },
+  { id: 16, name: "S4P4", price: 130 }
 ];
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -55,11 +63,28 @@ function confirmRemoveFromCart(itemId) {
   document.getElementById("modal-overlay").style.display = "block";
   document.getElementById("modal-confirm").onclick = function() {
     removeFromCart(itemId);
-    document.getElementById("modal-overlay").style.display = "none";
+    closeModal();
   };
-  document.getElementById("modal-cancel").onclick = function() {
+  document.getElementById("modal-cancel").onclick = closeModal;
+  function handleKey(e) {
+    if (e.key === "Escape") {
+      closeModal();
+    } else if (e.key === "Enter") {
+      removeFromCart(itemId);
+      closeModal();
+    }
+  }
+  function mouseWheelHandler(e) {
+    e.preventDefault();
+  }
+  document.addEventListener("keydown", handleKey);
+  document.addEventListener('wheel', mouseWheelHandler, { passive: false });
+
+  function closeModal() {
     document.getElementById("modal-overlay").style.display = "none";
-  };
+    document.removeEventListener('keydown', handleKey);
+    document.removeEventListener('wheel', mouseWheelHandler);
+  }
 }
 
 function changeQuantity(itemId, delta) {
