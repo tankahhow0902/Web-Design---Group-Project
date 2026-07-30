@@ -1,3 +1,16 @@
+:root {
+  --peach: #FFBE91;       /* 柔和桃色 */
+  --apricot: #FFDDB0;     /* 杏色 */
+  --cream: #FFFCE1;       /* 奶油白 */
+  --sky-blue: #CFEBFF;    /* 天空蓝 */
+  --coral: #FFB6A6;       /* 珊瑚粉 */
+  --sand: #FFEBD3;        /* 浅沙色 */
+  --mint-green: #9BCEC1;  /* 薄荷绿 */
+  --ocean-blue: #67A2C5;  /* 海洋蓝 */
+  --khaki: #DCCCAC;       /* 卡其色 */
+  --ivory: #FFF8EC;       /* 象牙白 */
+}
+
 /*hero*/
 .hero {
   display: flex;
@@ -11,7 +24,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: grey;
+  background-color:  #ffe29489;
 }
 
 .hero-text h2 {
@@ -41,7 +54,7 @@
   width: fit-content;
   padding: 12px 25px;
   margin-top: 20px;
-  background-color: #ff8fb1;
+  background-color: #e0af70;
   color: white;
   text-decoration: none;
   border-radius: 25px;
@@ -52,7 +65,7 @@
 }
 
 .btn:hover {
-  background-color: #ff6f9f;
+  background-color: #D97A2B;
   transform: translateY(-3px);
 }
 
@@ -63,7 +76,7 @@
 }
 
 .best-seller h2 {
-  margin-bottom: 50px;
+  margin-bottom: 120px;
   color: black;
   font-size: 40px;
   font-weight: bold;
@@ -78,39 +91,59 @@
 
 .seller-card {
   width: 220px;
-  background-color: #333;
   border-radius: 15px 15px 0 0;
   padding: 20px;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.36);
+  transition: 0.3s;
+}
+
+.seller-card:hover {
+  transform: translateY(-5px);
+}
+
+.ribbon {
+  position: absolute;
+  width: 150px;
+  height: auto;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
 }
 
 .seller-image {
   background-color: gainsboro;
   height: 200px;
-  margin-top: 40px;
+  margin-top: 80px;
 }
 
-.seller-card img {
+.seller-image img {
   width: 100%;
   height: 300px;
   object-fit: contain;
 }
 
 .seller-card h3 {
-  color: white;
   font-size: 18px;
   margin-top: 20px;
 }
 
 .first {
-  height: 400px;
+  height: 440px;
+  background-color: #769890;
+  color: black;
 }
 
 .second {
-  height: 330px;
+  height: 370px;
+  background-color: #9cc2b9;
+  color: black;
 }
 
 .third {
-  height: 280px;
+  height: 320px;
+  background-color: #b9d9d1;
 }
 
 /*banner*/
@@ -123,6 +156,7 @@
   height: 300px;
   margin-bottom: 40px;
   text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.36);
 }
 
 .banner-image {
@@ -144,7 +178,22 @@
   align-items: center;
   color: black;
   padding: 20px;
-  background-color: gray;
+}
+
+.s-text {
+  background-color: #FFB6A6;
+}
+
+.p-text {
+  background-color: #FFF19B;
+}
+
+.d-text {
+  background-color: #BCD9A2;
+}
+
+.w-text {
+  background-color: #ACBAC4;
 }
 
 .banner-text h2 {
@@ -185,17 +234,19 @@
 
 .form-content {
   width: 70%;
-  background-color: #444;
+  background-color: #F5E7C6;
   padding: 40px;
-  color: white;
+  color: #645e53;
+  font-weight: bold;
   border: none;
   border-radius: 20px;
   height: fit-content;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.36);
 }
 
 .form-title {
   text-align: center;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.5;
   margin-bottom: 30px;
 }
@@ -215,7 +266,7 @@
 .form-content input {
   height: 40px;
   width: 50%;
-  background-color: #ddd;
+  background-color: #DCCCAC;
   border: none;
   border-radius: 5px;
   padding: 0 10px;
@@ -223,15 +274,20 @@
 }
 
 .form-content button {
-  background-color: #ddd;
+  background-color: #C4A484;
   color: black;
+  font-weight: bold;
   border: none;
-  border-radius: 10px;
+  border-radius: 20px;
   padding: 12px 30px;
+  margin-top: 15px;
   font-size: 16px;
   cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 4px 10px rgba(255, 254, 254, 0.14);
 }
 
 .form-content button:hover {
-  background-color: #bbb;
+  background-color: #957C62;
+  transform: translateY(-3px);
 }
