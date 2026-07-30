@@ -1,3 +1,7 @@
+html{
+  scroll-behavior: smooth;
+}
+
 main {
   min-height: 100vh;
 }
@@ -14,6 +18,10 @@ h2::before{
 h2{
 font-size:24px;
 padding-left:50px;
+}
+
+#pokemon, #ds, #minecraft{
+  scroll-margin-top: 120px;
 }
 
 .product-container{
@@ -54,7 +62,7 @@ padding-left:50px;
   margin-top: 24px;
 }
 
-.product-name{
+.product-name,#product-pikachu,#product-eevee,#product-tanjiro{
   margin:0 0 15px ;
   font-size:23px;
   font-weight: 200;
@@ -68,12 +76,24 @@ padding-left:50px;
 }
 
 .star{
-  font-size:20px;
+  font-size:22px;
   color:lightgray;
   cursor: pointer;
 }
 
+.star.half{
+  background: linear-gradient(
+        90deg,
+        gold 50%,
+        lightgray 50%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
 .star.active{
+  font-size:22px;
   color:gold;
 }
 
