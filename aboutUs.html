@@ -15,22 +15,21 @@
   </header>
   <nav>
     <div class="nav-links">
-      <a href="#about-shop">About Shop</a> | 
-      <a href="#about-designers">About Designers</a> | 
-      <a href="#our-events">Events</a> 
+      <a onclick="scrollToTarget('about-shop')">About Shop</a> | 
+      <a onclick="scrollToTarget('about-designers')">About Designers</a> | 
+      <a onclick="scrollToTarget('our-events')">Events</a> 
     </div>
     <div class="nav-icons">
-      <a href="index.html" class="nav-img"><img src="img/home.png" alt="Home" /></a>
-      <a href="aboutUs.html" class="nav-img"><img src="img/aboutUs.png" id="active" alt="AboutUS" /></a>
-      <a href="products.html" class="nav-img"><img src="img/products.png" alt="Products" /></a>
-      <a href="cart.html" class="nav-img"><img src="img/cart.png" alt="Cart" /></a>
+      <a href="index.html" class="nav-img"><img src="img/home.png" alt="Home"></a>
+      <a href="aboutUs.html" class="nav-img"><img src="img/aboutUs.png" id="active" alt="AboutUS"></a>
+      <a href="products.html" class="nav-img"><img src="img/products.png" alt="Products"></a>
+      <a href="cart.html" class="nav-img"><img src="img/cart.png" alt="Cart"></a>
     </div>
   </nav>
 
   <main>
-	<br><br id="about-shop">
-	<h2>About Shop</h2>
 	<div class="shop">
+	<h2 id="about-shop">About Shop</h2>
 		<div class="shop-img">
 			<img src="img/shop.png" alt="Shop">
 		</div>
@@ -39,11 +38,8 @@
 		</div>
 	</div>
 	
-	<br><br id="about-designers">
-	
+	<div class="designer-slider" id="about-designers">
 	<h2>About Designers</h2>
-	<div class="designer-slider">
-
 	  <div class="click-zone left" onclick="plusSlides(-1)"></div>
 
 	  <div class="about-designer">
@@ -96,10 +92,8 @@
 	  <span class="dot" onclick="currentSlide(4)"></span>
 	</div>
 	
-	<br><br id="our-events">
-	
-	<h2>Events</h2>
 	<div class="events">
+	<h2 id="our-events">Events</h2>
 	  <div class="event-card">
 		<img src="img/event1.jpg" alt="Chagee">
 		<div class="event-name">Chagee</div>
@@ -137,6 +131,7 @@
     </div>
   </footer>
 
+  <script src="script.js"></script>
   <script src="aboutUs.js"></script>
 </body>
 </html>

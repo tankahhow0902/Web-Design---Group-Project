@@ -1,6 +1,9 @@
 h2,.shop-text p {
 	text-align: center;
 }
+.shop,.designer-slider,.events {
+	margin:50px;
+}
 .shop-img {
 	background-color:pink;
 	height:50vh;
@@ -83,6 +86,7 @@ h2,.shop-text p {
 }
 
 .event-card {
+	margin:20px;
 	position: relative;
 	width: 1000px;
 	height: 300px;
