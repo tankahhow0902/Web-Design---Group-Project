@@ -25,7 +25,6 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
 }
 
-// 自动播放
-//setInterval(() => {
-//  plusSlides(1);
-//}, 10000);
+setInterval(() => {
+  plusSlides(1);
+}, 10000);
