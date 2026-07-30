@@ -27,4 +27,4 @@ function showSlides(n) {
 
 setInterval(() => {
   plusSlides(1);
-}, 10000);
+}, 7000);
