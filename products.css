@@ -28,13 +28,12 @@ padding-left:50px;
   width:100%;
   height: 280px;
   overflow: hidden;
-  background-color: rgb(213, 233, 186);
 }
 
 .product-image img{
   width:100%;
   height:100%;
-  object-fit: cover;
+  object-fit: contain;
   position: absolute;
   top:0;
   left:0;
@@ -96,6 +95,12 @@ padding-left:50px;
   border-radius: 12px;
   padding: 20px;
   cursor: pointer;
+
+  position: absolute;
+  transform: translateX(-50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
 }
 
 /*hide price in anywhere inside info area*/
@@ -106,6 +111,8 @@ padding-left:50px;
 /*show button*/
 .product-info:hover .add-cart {
   display: inline-block;
+  opacity: 1;
+  visibility: visible;
 }
 
 .product:hover .front-view{
