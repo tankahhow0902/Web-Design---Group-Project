@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="page-id" content="products">
   <title>Fluffy Corner | Cute Soft Toys & Plush Toys Online</title>
   <link rel="icon" type="image/x-icon" href="img/logo.png">
@@ -22,10 +23,10 @@
       <a href="#minecraft">Minecraft</a> 
     </div>
     <div class="nav-icons">
-      <a href="index.html" class="nav-img"><img src="img/home.png" alt="Home" /></a>
-      <a href="aboutUs.html" class="nav-img"><img src="img/aboutUs.png" alt="Home" /></a>
-      <a href="products.html" class="nav-img"><img src="img/products.png" id="active" alt="Home" /></a>
-      <a href="cart.html" class="nav-img"><img src="img/cart.png" alt="Home" /></a>
+      <a href="index.html" class="nav-img" title="Home"><img src="img/home.png" alt="Home" /></a>
+      <a href="aboutUs.html" class="nav-img" title="About us"><img src="img/aboutUs.png" alt="About Us" /></a>
+      <a href="products.html" class="nav-img" title="Products"><img src="img/products.png" id="active" alt="Products" /></a>
+      <a href="cart.html" class="nav-img" title="Cart"><img src="img/cart.png" alt="Home" /></a>
     </div>
   </nav>
 
@@ -58,7 +59,7 @@
                 (<span class="rating-count">4</span>)
               </div>
             </div>
-            <button class="add-cart">Add to Cart</button>
+            <button class="add-cart" onclick="addToCart(1)">Add to Cart</button>
           </div>
         </div>
 
@@ -82,7 +83,7 @@
                 (<span class="rating-count">4</span>)
               </div>
             </div>
-            <button class="add-cart">Add to Cart</button>
+            <button class="add-cart" onclick="addToCart(2)">Add to Cart</button>
           </div>
         </div>
 
@@ -106,7 +107,7 @@
                 (<span class="rating-count">4</span>)
               </div>
             </div>
-            <button class="add-cart">Add to Cart</button>
+            <button class="add-cart" onclick="addToCart(3)">Add to Cart</button>
           </div>
         </div>
 
@@ -130,7 +131,7 @@
                 (<span class="rating-count">4</span>)
               </div>
             </div>
-            <button class="add-cart">Add to Cart</button>
+            <button class="add-cart"m onclick="addToCart(4)">Add to Cart</button>
           </div>
         </div>
 
@@ -163,7 +164,7 @@
                 (<span class="rating-count">4</span>)
               </div>
             </div>
-            <button class="add-cart">Add to Cart</button>
+            <button class="add-cart" onclick="addToCart(5)">Add to Cart</button>
           </div>
         </div>
 
@@ -187,7 +188,7 @@
                 (<span class="rating-count">4</span>)
               </div>
             </div>
-            <button class="add-cart">Add to Cart</button>
+            <button class="add-cart" onclick="addToCart(6)">Add to Cart</button>
           </div>
         </div>
 
@@ -211,7 +212,7 @@
                 (<span class="rating-count">4</span>)
               </div>
             </div>
-            <button class="add-cart">Add to Cart</button>
+            <button class="add-cart" onclick="addToCart(7)">Add to Cart</button>
           </div>
         </div>
 
@@ -235,7 +236,7 @@
                 (<span class="rating-count">4</span>)
               </div>
             </div>
-            <button class="add-cart">Add to Cart</button>
+            <button class="add-cart" onclick="addToCart(8)">Add to Cart</button>
           </div>
         </div>
 
@@ -268,7 +269,7 @@
                 (<span class="rating-count">4</span>)
               </div>
             </div>
-            <button class="add-cart">Add to Cart</button>
+            <button class="add-cart" onclick="addToCart(9)">Add to Cart</button>
           </div>
         </div>
 
@@ -292,7 +293,7 @@
                 (<span class="rating-count">4</span>)
               </div>
             </div>
-            <button class="add-cart">Add to Cart</button>
+            <button class="add-cart" onclick="addToCart(10)">Add to Cart</button>
           </div>
         </div>
 
@@ -316,7 +317,7 @@
                 (<span class="rating-count">4</span>)
               </div>
             </div>
-            <button class="add-cart">Add to Cart</button>
+            <button class="add-cart" onclick="addToCart(11)">Add to Cart</button>
           </div>
         </div>
 
@@ -340,7 +341,7 @@
                 (<span class="rating-count">4</span>)
               </div>
             </div>
-            <button class="add-cart">Add to Cart</button>
+            <button class="add-cart" onclick="addToCart(12)">Add to Cart</button>
           </div>
         </div>
 
@@ -373,7 +374,7 @@
                 (<span class="rating-count">4</span>)
               </div>
             </div>
-            <button class="add-cart">Add to Cart</button>
+            <button class="add-cart" onclick="addToCart(13)">Add to Cart</button>
           </div>
         </div>
 
@@ -397,7 +398,7 @@
                 (<span class="rating-count">4</span>)
               </div>
             </div>
-            <button class="add-cart">Add to Cart</button>
+            <button class="add-cart" onclick="addToCart(14)">Add to Cart</button>
           </div>
         </div>
 
@@ -421,7 +422,7 @@
                 (<span class="rating-count">4</span>)
               </div>
             </div>
-            <button class="add-cart">Add to Cart</button>
+            <button class="add-cart" onclick="addToCart(15)">Add to Cart</button>
           </div>
         </div>
 
@@ -445,7 +446,7 @@
                 (<span class="rating-count">4</span>)
               </div>
             </div>
-            <button class="add-cart">Add to Cart</button>
+            <button class="add-cart" onclick="addToCart(16)">Add to Cart</button>
           </div>
         </div>
 
@@ -473,6 +474,8 @@
     </div>
   </footer>
 
+  <script src="script.js"></script>
   <script src="products.js"></script>
+  
 </body>
 </html>

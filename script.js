@@ -18,22 +18,22 @@ function scrollToTarget(TargetID){
 
 
 const products = [
-  { id: 1, name: "Hello Kitty", price: 100 },
-  { id: 2, name: "Kuromi", price: 120 },
-  { id: 3, name: "Melody", price: 80 },
-  { id: 4, name: "S1P4", price: 150 },
-  { id: 5, name: "S2P1", price: 200 },
-  { id: 6, name: "S2P2", price: 90 },
-  { id: 7, name: "S2P3", price: 110 },
-  { id: 8, name: "S2P4", price: 130 },
-  { id: 9, name: "S3P1", price: 100 },
-  { id: 10, name: "S3P2", price: 120 },
-  { id: 11, name: "S3P3", price: 80 },
-  { id: 12, name: "S3P4", price: 150 },
-  { id: 13, name: "S4P1", price: 200 },
-  { id: 14, name: "S4P2", price: 90 },
-  { id: 15, name: "S4P3", price: 110 },
-  { id: 16, name: "S4P4", price: 130 }
+  { id: 1, name: "Hello Kitty", price: 89 },
+  { id: 2, name: "Melody", price: 69 },
+  { id: 3, name: "Kuromi", price: 89 },
+  { id: 4, name: "Keroppi", price: 59 },
+  { id: 5, name: "Pikachu", price: 99 },
+  { id: 6, name: "Eevee", price: 99 },
+  { id: 7, name: "Clodsire", price: 79 },
+  { id: 8, name: "Buneary", price: 79 },
+  { id: 9, name: "Tanjiro Kamado", price: 79 },
+  { id: 10, name: "Nezuko Kamado", price: 79 },
+  { id: 11, name: "Zenitsu Agatsuma", price: 79 },
+  { id: 12, name: "Inosuke Hashibara", price: 79 },
+  { id: 13, name: "Alex", price: 69 },
+  { id: 14, name: "Creeper", price: 79 },
+  { id: 15, name: "Sheep", price: 89 },
+  { id: 16, name: "Enderman", price: 99 }
 ];
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
