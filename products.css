@@ -62,7 +62,7 @@ padding-left:50px;
   margin-top: 24px;
 }
 
-.product-name,#product-pikachu,#product-eevee,#product-tanjiro{
+.product-name{
   margin:0 0 15px ;
   font-size:23px;
   font-weight: 200;
