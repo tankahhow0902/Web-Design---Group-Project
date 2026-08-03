@@ -201,3 +201,9 @@ padding-left:50px;
     font-size: 14px;
   }
 }
+
+#product-tanjiro,
+#product-eevee,
+#product-pikachu {
+    scroll-margin-top: 180px;
+}
