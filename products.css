@@ -123,12 +123,10 @@ padding-left:50px;
   transition: opacity 0.3s ease;
 }
 
-/*hide price in anywhere inside info area*/
 .product-info:hover .product-details {
   display: none;
 }
 
-/*show button*/
 .product-info:hover .add-cart {
   display: inline-block;
   opacity: 1;
