@@ -39,7 +39,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 5rem;
+  height: 5.5rem;
   padding: 10px 20px;
   background-color: #A77F60;
   border: 5px var(--ivory);
@@ -55,18 +55,20 @@ nav {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  color:white;
 }
 
 .nav-links a {
   text-decoration: none;
-  color: #333;
-  font-size: 16px;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .nav-icons {
   margin-left: auto;
   display: flex;
-  gap: 12px;
+  gap: 9px;
 }
 
 .nav-icons img {
