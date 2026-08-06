@@ -27,4 +27,42 @@ function showSlides(n) {
 
 setInterval(() => {
   plusSlides(1);
-}, 7000);
+}, 10000);
+
+const modal = document.getElementById('event-modal');
+const modalImage = document.getElementById('modal-image');
+const modalName = document.getElementById('modal-name');
+const modalDetail = document.getElementById('modal-detail');
+const closeBtn = document.querySelector('.close');
+
+document.querySelectorAll('.event-card').forEach(card => {
+  card.addEventListener('click', () => {
+    modalImage.src = card.querySelector('img').src;
+    modalName.textContent = card.dataset.name;
+    modalDetail.textContent = card.dataset.detail;
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+closeBtn.onclick = () => {
+  modal.style.display = 'none';
+  document.body.style.overflow = '';
+};
+
+window.onclick = (event) => {
+  if (event.target === modal) {
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+};
+
+window.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+  if (['ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(event.key)) {
+    event.preventDefault();
+  }
+});

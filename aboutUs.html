@@ -94,23 +94,38 @@
 	
 	<div class="events">
 	<h2 id="our-events">Events</h2>
-	  <div class="event-card">
-		<img src="img/event1.jpg" alt="Chagee">
-		<div class="event-name">Chagee</div>
+	  <div class="event-card" data-name="Chaji" data-detail="This is event at Chaji">
+		<img src="img/event1.jpg" alt="Chaji">
+		<div class="event-name">Chaji</div>
 	  </div>
-	  <div class="event-card">
+	  <div class="event-card" data-name="Road Show" data-detail="Road Show at bukit bintang">
 		<img src="img/event2.jpg" alt="Bukit Bintang Road Show">
 		<div class="event-name">Bukit Bintang Road Show</div>
 	  </div>
-	  <div class="event-card">
+	  <div class="event-card" data-name="Pop Up Booth" data-detail="Booth event at Japan">
 		<img src="img/event3.jpg" alt="Japan Pop Up Booth">
 		<div class="event-name">Japan Pop Up Booth</div>
 	  </div>
-	  <div class="event-card">
+	  <div class="event-card" data-name="Cosplay" data-detail="Our cosplay event">
 		<img src="img/event4.jpg" alt="Cosplay">
 		<div class="event-name">Cosplay</div>
 	  </div>
 	</div>
+	
+	<div id="event-modal" class="event-modal">
+	  <div class="modal-content">
+		<span class="close">&times;</span>
+		<div class="modal-grid">
+		  <div class="modal-img">
+			<img id="modal-image" src="" alt="">
+		  </div>
+		  <div class="modal-text">
+			<h3 id="modal-name"></h3>
+			<p id="modal-detail"></p>
+		  </div>
+		</div>
+	  </div>
+</div>
   </main>
 
   <footer>
