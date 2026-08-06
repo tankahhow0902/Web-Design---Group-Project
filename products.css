@@ -141,33 +141,13 @@ padding-left:50px;
     opacity:1;
 }
 
+#product-tanjiro,
+#product-eevee,
+#product-pikachu {
+    scroll-margin-top: 180px;
+}
+
 @media(max-width:900px){
-  nav {
-    height:4rem;
-    padding: 5px 10px;
-    justify-content: space-between;
-  }  
-
-  .nav-links{
-    position: static;
-    transform: none;
-    gap: 8px;
-    margin-left: 10px;
-  }
-
-  .nav-links a {
-    font-size: 13px;
-  }
-
-  .nav-icons {
-    gap:8px;
-    margin-left:auto;
-  }
-
-  .nav-icons img{
-    width:28px;
-  }
-
   .product-container {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
@@ -200,10 +180,4 @@ padding-left:50px;
   .product-rating {
     font-size: 14px;
   }
-}
-
-#product-tanjiro,
-#product-eevee,
-#product-pikachu {
-    scroll-margin-top: 180px;
 }
