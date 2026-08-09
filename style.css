@@ -147,3 +147,86 @@ footer {
 .contact-item img { width: 32px;}
 .social-item img { width: 24px; }
 .contact-item:hover, .social-item:hover { transform: scale(1.05); }
+
+@media (max-width: 900px) {
+
+  header {
+    height: 5rem;
+    gap: 5px;
+  }
+
+  .header-img {
+    width: 60px;
+    height: 60px;
+  }
+
+  header h1 {
+    font-size: 20px;
+  }
+
+  nav {
+    height: auto;
+    padding: 10px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+   .nav-links {
+    position: static;
+    transform: none;
+    gap: 10px;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+  }
+
+  .nav-icons {
+    margin-left: 0;
+    gap: 5px;
+  }
+
+  .nav-icons img {
+    width: 55px;
+  }
+
+  footer {
+    text-align: center;
+  }
+
+  .footer {
+    padding: 12px 12px;
+  }
+
+  .footer.left {
+    margin-top: 50px;
+    padding-left: 0;
+  }
+
+  .footer.left img {
+    width: 100px;
+    height: auto;
+  }
+
+  .footer.center, .footer.right {
+    padding: 12px 12px;
+  }
+
+  .footer p {
+    font-size: 14px;
+  }
+
+  .contact-item,
+  .social-item {
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .contact-item {
+    padding: 5px;
+  }
+
+  .social-item {
+    padding: 8px;
+  }
+}
