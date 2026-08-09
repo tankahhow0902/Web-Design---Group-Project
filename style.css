@@ -153,6 +153,7 @@ footer {
   header {
     height: 5rem;
     gap: 5px;
+    width:105%;
   }
 
   .header-img {
@@ -169,6 +170,7 @@ footer {
     padding: 10px;
     flex-direction: column;
     gap: 10px;
+    width:100%;
   }
 
    .nav-links {

@@ -149,13 +149,14 @@ padding-left:50px;
 
 @media(max-width:900px){
   .product-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-        margin: 30px 20px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin: 30px 20px;
+    width:80%;
   }
 
   .product-image {
-        height: 220px;
+    height: 220px;
   }
 
   .product-info {
