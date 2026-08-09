@@ -147,16 +147,18 @@ padding-left:50px;
     scroll-margin-top: 180px;
 }
 
-@media(max-width:900px){
+@media(max-width:768px){
   .product-container {
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    margin: 30px 20px;
-    width:max-content;
+    gap: 30px 10px;
+    margin: auto;
+    width:95%;
   }
 
   .product-image {
-    height: 180px;
+    max-width: 180px;
+    display: block;
+    object-fit: contain;
   }
 
   .product-info {
@@ -165,20 +167,20 @@ padding-left:50px;
   }
 
   .product-name { 
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 8px;
   }
 
   .product-price {
-    font-size: 15px;
+    font-size: 16px;
   }
 
+  .product-rating{
+    font-size: 18px;
+  }
   h2 {
     font-size: 20px;
     padding-left: 30px;
   }
 
-  .product-rating {
-    font-size: 14px;
-  }
 }
