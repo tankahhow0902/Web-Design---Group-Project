@@ -36,6 +36,34 @@ table, th, td {
 .cart-table tr:nth-child(1) {
   text-decoration: underline;
 }
+.item-image-cell {
+  position: relative;
+}
+.item-image {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  transition: opacity 0.2s ease;
+}
+.item-image.front {
+   opacity: 1;
+}
+.item-image.front:hover {
+   opacity: 0;
+}
+.item-image.side {
+   opacity: 0;
+}
+.item-image-cell:hover .front {
+  opacity: 0;
+}
+
+.item-image-cell:hover .side {
+  opacity: 1;
+}
 
 .item-cell {
   text-align: left;

@@ -128,6 +128,7 @@ function renderCart() {
   let html = `
     <table class="cart-table">
       <tr>
+        <th style="width:10%;"> </th>
         <th>Item</th>
         <th style="width:15%;">Quantity</th>
         <th style="width:12%;">Price</th>
@@ -137,7 +138,8 @@ function renderCart() {
 
   cart.forEach(item => {
     html += `
-      <tr>
+      <tr height="140px">
+        <td class="item-image-cell"> <img src="img/${item.name}_front.png" class="item-image front"> <img src="img/${item.name}_side.png" class="item-image side"></td>
         <td class="item-cell"> <span class="item-name">${item.name}</span> <span class="unit-price">RM${item.price}</span> </td>
         <td class="quantity-cell">
           <button class="qty-btn" onclick="changeQuantity(${item.id}, -1)">-</button>
@@ -153,6 +155,7 @@ function renderCart() {
   const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
   html += `
     <tr>
+      <td></td>
       <td></td>
       <td class="total-label">Total(Tax Included)</td>
       <td class="total-amount">RM${total}</td>
