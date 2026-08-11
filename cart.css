@@ -36,6 +36,9 @@ table, th, td {
 .cart-table tr:nth-child(1) {
   text-decoration: underline;
 }
+.cart-row {
+    height: 140px;
+  }
 .item-image-cell {
   position: relative;
 }
@@ -195,3 +198,61 @@ table, th, td {
 }
 
 .qty-btn:hover, .checkout-btn:hover { background-color: var(--ocean-blue); }
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 20px;
+  }
+  table, th, td {
+    font-size: 10px;
+    padding: 0;
+  }
+  .cart-row {
+    height: 80px;
+  }
+  .item-image {
+    top: 10px;
+    width: 60px;
+    height: 60px;
+  }
+  .item-cell {
+    padding-left: 5px;
+  }
+  .item-cell .item-name {
+    font-size: 12px;
+  }
+  .item-cell .unit-price {
+    padding-left: 2px;
+    font-size: 8px;
+  }
+  .qty-btn {
+    width: 20px;
+    height: 20px;
+    font-size: 14px;
+  }
+  .price-cell {
+    padding-right: 15px;
+  }
+  .remove-btn {
+    font-size: 16px;
+  }
+  .total-label {
+    font-size: 16px;
+  }
+  .modal-box {
+    width: 200px;
+    padding: 10px;
+  }
+  #modal-text {
+    font-size: 14px;
+  }
+  .checkout-image {
+    width: 180px;
+    height: 180px;
+  }
+  .checkout-btn {
+    padding: 15px 20px;
+    font-size: 14px;
+  }
+
+}
