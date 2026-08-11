@@ -1,37 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="page-id" content="aboutUs">
-  <title>Fluffy Corner | Cute Soft Toys & Plush Toys Online</title>
-  <link rel="icon" type="image/x-icon" href="img/logo.png">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="aboutUs.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="page-id" content="aboutUs">
+	<title>Fluffy Corner | Cute Soft Toys & Plush Toys Online</title>
+	<link rel="icon" type="image/x-icon" href="img/logo.png">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="aboutUs.css">
 </head>
 <body>
-  <header>
-    <img class="header-img" src="img/logo.png">
-    <h1>Fluffy Corner</h1>
-  </header>
-  <nav>
-    <div class="nav-links">
-      <a onclick="scrollToTarget('about-shop')">About Shop</a> | 
-      <a onclick="scrollToTarget('about-designers')">About Designers</a> | 
-      <a onclick="scrollToTarget('our-events')">Events</a> 
-    </div>
-    <div class="nav-icons">
-      <a href="index.html" class="nav-img"><img src="img/home.png" alt="Home"></a>
-      <a href="aboutUs.html" class="nav-img"><img src="img/aboutUs.png" id="active" alt="AboutUS"></a>
-      <a href="products.html" class="nav-img"><img src="img/products.png" alt="Products"></a>
-      <a href="cart.html" class="nav-img"><img src="img/cart.png" alt="Cart"></a>
-    </div>
-  </nav>
+	<header>
+		<img class="header-img" src="img/logo.png">
+		<h1>Fluffy Corner</h1>
+	</header>
+	<nav>
+		<div class="nav-links">
+			<a onclick="scrollToTarget('about-shop')">About Shop</a> | 
+			<a onclick="scrollToTarget('about-designers')">About Designers</a> | 
+			<a onclick="scrollToTarget('our-events')">Events</a> 
+		</div>
+		<div class="nav-icons">
+		  <a href="index.html" class="nav-img"><img src="img/home.png" alt="Home"></a>
+		  <a href="aboutUs.html" class="nav-img"><img src="img/aboutUs.png" id="active" alt="AboutUS"></a>
+		  <a href="products.html" class="nav-img"><img src="img/products.png" alt="Products"></a>
+		  <a href="cart.html" class="nav-img"><img src="img/cart.png" alt="Cart"></a>
+		</div>
+	</nav>
 
-  <main>
+	<main>
 	<div class="shop">
 	<h2 id="about-shop">About Shop</h2>
 		<div class="shop-img">
-			<img src="img/shop.png" alt="Shop">
+			<img id="shopAutoImg" src="img/store_front.png" alt="Shop">
 		</div>
 		<div class="shop-text">
 			<p>	Our shop was build at Kajang in 2026. </p> 
@@ -40,96 +41,98 @@
 	
 	<div class="designer-slider" id="about-designers">
 	<h2>About Designers</h2>
-	  <div class="click-zone left" onclick="plusSlides(-1)"></div>
+	<div class="click-zone left" id="prevBtn"></div>
+		<div class="carousel">
+			<div class="carousel-track">
+			<div class="about-designer">
+				<div class="designer-img">
+					<img src="img/designer1.png" alt="Designer 1">
+				</div>
+				<div class="designer-text">
+					<h3>Chiew Zi Xuan</h3>
+					<p>I'm the big boss!</p>
+				</div>
+			</div>
 
-	  <div class="about-designer">
-		<div class="designer-img">
-			<img src="img/designer1.png" alt="Designer 1">
-		</div>
-		<div class="designer-text">
-		  <h3>Chiew Zi Xuan</h3>
-		  <p>I'm the big boss!</p>
-		</div>
-	  </div>
+			<div class="about-designer">
+				<div class="designer-img">
+					<img src="img/designer2.png" alt="Designer 2">
+				</div>
+				<div class="designer-text">
+					<h3>Tan Kah How</h3>
+					<p>I'm the shareholder!</p>
+				</div>
+			</div>
 
-	  <div class="about-designer">
-		<div class="designer-img">
-			<img src="img/designer2.png" alt="Designer 2">
-		</div>
-		<div class="designer-text">
-		  <h3>Tan Kah How</h3>
-		  <p>I'm the shareholder!</p>
-		</div>
-	  </div>
+			<div class="about-designer">
+				<div class="designer-img">
+					<img src="img/designer3.png" alt="Designer 3">
+				</div>
+				<div class="designer-text">
+					<h3>Wang Ka Hui</h3>
+					<p>I'm the CEO!</p>
+				</div>
+			</div>
 
-	  <div class="about-designer">
-		<div class="designer-img">
-			<img src="img/designer3.png" alt="Designer 3">
+			<div class="about-designer">
+				<div class="designer-img">
+					<img src="img/designer4.png" alt="Designer 4">
+				</div>
+				<div class="designer-text">
+					<h3>Choo Yue Lung</h3>
+					<p>I'm the staff!</p>
+				</div>
+			</div>
+			</div>
 		</div>
-		<div class="designer-text">
-		  <h3>Wang Ka Hui</h3>
-		  <p>I'm the CEO!</p>
-		</div>
-	  </div>
-
-	  <div class="about-designer">
-		<div class="designer-img">
-			<img src="img/designer4.png" alt="Designer 4">
-		</div>
-		<div class="designer-text">
-		  <h3>Choo Yue Lung</h3>
-		  <p>I'm the staff!</p>
-		</div>
-	  </div>
-
-	  <div class="click-zone right" onclick="plusSlides(1)"></div>
+	<div class="click-zone right" id="nextBtn"></div>	
 	</div>
 
-	<div style="text-align:center">
-	  <span class="dot" onclick="currentSlide(1)"></span>
-	  <span class="dot" onclick="currentSlide(2)"></span>
-	  <span class="dot" onclick="currentSlide(3)"></span>
-	  <span class="dot" onclick="currentSlide(4)"></span>
+	<div style="text-align:center" class="dots-container">
+	  <span class="dot" data-index="0"></span>
+	  <span class="dot" data-index="1"></span>
+	  <span class="dot" data-index="2"></span>
+	  <span class="dot" data-index="3"></span>
 	</div>
 	
 	<div class="events">
 	<h2 id="our-events">Events</h2>
 	  <div class="event-card" data-name="Chaji" data-detail="This is event at Chaji">
-		<img src="img/event1.jpg" alt="Chaji">
+		<img src="img/chaji_landscape.png" alt="Chaji">
 		<div class="event-name">Chaji</div>
 	  </div>
 	  <div class="event-card" data-name="Road Show" data-detail="Road Show at bukit bintang">
-		<img src="img/event2.jpg" alt="Bukit Bintang Road Show">
+		<img src="img/roadshow.png" alt="Bukit Bintang Road Show">
 		<div class="event-name">Bukit Bintang Road Show</div>
 	  </div>
 	  <div class="event-card" data-name="Pop Up Booth" data-detail="Booth event at Japan">
-		<img src="img/event3.jpg" alt="Japan Pop Up Booth">
+		<img src="img/jpnBooth.png" alt="Japan Pop Up Booth">
 		<div class="event-name">Japan Pop Up Booth</div>
 	  </div>
 	  <div class="event-card" data-name="Cosplay" data-detail="Our cosplay event">
-		<img src="img/event4.jpg" alt="Cosplay">
+		<img src="img/cosplay.png" alt="Cosplay">
 		<div class="event-name">Cosplay</div>
 	  </div>
 	</div>
 	
 	<div id="event-modal" class="event-modal">
-	  <div class="modal-content">
-		<span class="close">&times;</span>
-		<div class="modal-grid">
-		  <div class="modal-img">
-			<img id="modal-image" src="" alt="">
-		  </div>
-		  <div class="modal-text">
-			<h3 id="modal-name"></h3>
-			<p id="modal-detail"></p>
-		  </div>
+		 <div class="modal-content">
+			<span class="close">&times;</span>
+			<div class="modal-grid">
+				<div class="modal-img">
+					<img id="modal-image" src="" alt="">
+				</div>
+				<div class="modal-text">
+					<h3 id="modal-name"></h3>
+					<p id="modal-detail"></p>
+				</div>
+				</div>
+			</div>
 		</div>
-	  </div>
-</div>
-  </main>
+</main>
 
-  <footer>
-	<div class="footer left"><img class="footer-img" src="img/footer.png"></div>
+<footer>
+	 <div class="footer left"><img class="footer-img" src="img/footer.png"></div>
     
     <div class="footer center">
       <h3>Contact Us</h3>
@@ -144,7 +147,7 @@
       <span class="social-item"><a href="https://instagram.com" target="_blank"><img src="img/insta.png">Instagram</a></span>
       <p>© 2026 Your Company. All rights reserved.</p>
     </div>
-  </footer>
+</footer>
 
   <script src="script.js"></script>
   <script src="aboutUs.js"></script>

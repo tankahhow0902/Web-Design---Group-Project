@@ -1,81 +1,187 @@
+/*text*/
 h2,.shop-text p {
 	text-align: center;
 }
+
+/*about shop*/
 .shop,.designer-slider,.events {
 	margin:50px;
 }
 .shop-img {
 	background-color:pink;
-	height:50vh;
+	height:900px;
 	margin:10px 25px 25px 25px;
 }
+.shop-img img{
+	height:100%;
+	width: 100%;
+	object-fit: cover;
+	transition: opacity 400ms ease; 
+	opacity: 1;
+}
+.shop-img img.fade-out {
+	opacity: 0;
+}
+
+/*about designer*/
 .designer-slider {
 	position: relative;
+	margin: 50px;
+}
+:root {
+	--carousel-max-width: 1400px; 
+	--slide-gap: 60px;
+	-slide-width-percent: 70%;
+}
+/* ---------- Designer carousel: 固定接近样张的尺寸与比例 ---------- */
+:root {
+  --carousel-max-width: 1400px; /* 容器最大宽度（页面中央总宽度） */
+  --slide-gap: 80px;            /* 邻居露出宽度，样张露出较多所以设大 */
+  --slide-width-percent: 54%;   /* 中间 slide 占容器宽度的百分比（调整中间卡宽度） */
 }
 
-.about-designer {
-	display: grid;
-	grid-template-columns: 750px 1fr;
-	align-items: center;
-	gap:20px;
-	margin: 20px 200px;
-	height:375px;
-	width:auto;
+/* 容器：居中并允许邻居露出 */
+.carousel {
+  width: 100%;
+  max-width: var(--carousel-max-width);
+  margin: 0 auto;
+  position: relative;
+  overflow: visible; /* 允许左右卡露出 */
+  box-sizing: border-box;
+  padding: 48px 0;   /* 顶部留白与样张相似 */
 }
 
-.designer-img {
-	grid-column: 1;
-	margin:0px 50px 0px 300px;
+/* track: 横向排列并使用 gap */
+.carousel-track {
+  display: flex;
+  gap: var(--slide-gap);
+  transition: transform 600ms cubic-bezier(.22,.9,.32,1);
+  will-change: transform;
+  align-items: center;
+  padding: 0;
 }
 
-.designer-img img {
-	width: 250px;
-	border-radius: 8px;
-	box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+/* 每个 slide 比容器窄，产生中间突出、两侧露出效果 */
+.carousel-track .about-designer {
+  flex: 0 0 calc(var(--slide-width-percent));
+  box-sizing: border-box;
+  display: flex;               /* 内部水平布局：文本 + 图 */
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px 36px;
+  height: 460px;              /* 固定高度，和样张接近 */
+  background: #f5f5f5;        /* 邻居卡默认浅色 */
+  border-radius: 4px;
+  transition: transform 300ms ease, background 300ms ease, box-shadow 300ms ease;
+  overflow: hidden;
+  position: relative;
 }
 
-.designer-text {
-	grid-column: 2;  
-	text-align:left;
-	}
-
-.prev, .next {
-	cursor: pointer;
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	color: black;
-	font-weight: bold;
-	font-size: 24px;
-	user-select: none;
-	width:40px;
-	height:auto;
+/* 中间激活 slide：深色背景、放大、阴影 */
+.carousel-track .about-designer.active {
+  background: #111;
+  color: #fff;
+  transform: scale(1.03);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.28);
 }
+
+/* slide 内部 - 左边文字区与右边图片区的比例（文本占 44%，图片占 56%）*/
+.carousel-track .about-designer .designer-text {
+  flex: 0 0 44%;
+  color: #222; /* 非 active 时用深色文字 */
+  z-index: 3;
+}
+.carousel-track .about-designer .designer-text h3 {
+  margin: 0 0 14px;
+  font-size: 22px;
+}
+.carousel-track .about-designer .designer-text p {
+  margin: 0;
+  line-height: 1.6;
+  font-size: 14px;
+  color: inherit;
+  opacity: 0.95;
+}
+
+/* 右侧图片区域：占比约 56%，图片填满区域并保持比例裁切 */
+.carousel-track .about-designer .designer-img {
+  flex: 0 0 56%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: 0;
+}
+
+/* 图片适应：填满右侧区域并裁切（object-fit:cover）*/
+.carousel-track .about-designer .designer-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2px;
+  display: block;
+  /* active slide 时会显示额外黑边（可选），如果你不要边框可移除下一行 */
+  box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+}
+
+/* active（中间）slide 的文字变白，图片加深边框突出 */
+.carousel-track .about-designer.active .designer-text h3,
+.carousel-track .about-designer.active .designer-text p {
+  color: #fff;
+}
+.carousel-track .about-designer.active .designer-img img {
+  border: none;
+  outline: 8px solid #111; /* 视觉上类似 border，但不影响布局尺寸 */
+  box-shadow: none;
+}
+
+/* 清除旧 margin 避免累积位移 */
+.about-designer { margin: 0; width: 100%; }
+
 .click-zone {
-	position: absolute;
-	top: 0;
-	width: 25%;
-	height: 100%;
-	cursor: pointer;
+  position: absolute;
+  top: 0;
+  width: 10%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
 }
 .click-zone.left { left: 0; }
 .click-zone.right { right: 0; }
-.click-zone:hover {
-	background: rgba(0,0,0,0.0);
+.click-zone::before {
+  content: "";
+  display: block;
+  width: 44px;
+  height: 44px;
+  background: rgba(0,0,0,0.12);
+  border-radius: 50%;
+  transition: background 200ms;
 }
-.dot {
-	cursor: pointer;
-	height: 15px;
-	width: 15px;
-	margin: 0 2px;
-	background-color: #bbb;
-	border-radius: 50%;
-	display: inline-block;
-}
-.active, .dot:hover {
-	background-color: #717171;
-}
+.click-zone:hover::before { background: rgba(0,0,0,0.18); }
 
+/*dot*/
+.dots-container {
+	text-align: center;
+	margin-top: 12px;
+}
+.dots-container .dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 0 6px;
+  background: #bbb;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.dots-container .dot.active {
+  background-color: #717171;
+}
+/*event*/
 .events {
 	display: grid;
 	grid-template-columns: 1fr;
