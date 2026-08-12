@@ -208,7 +208,7 @@ footer {
   footer {
     display:grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
+    grid-template-rows: auto auto auto;
     text-align: center;
     width: 100%;
     box-sizing: border-box;
@@ -222,9 +222,8 @@ footer {
 
   .footer.left {
     grid-column: 1;
-    grid-row: 1;
+    grid-row: 2;
     padding:15px 0;
-    border-right: 2px dotted;
   }
 
   .footer.left img {
@@ -234,19 +233,23 @@ footer {
 
   .footer.center {
     grid-column: 1 / 3;
-    grid-row: 2;
+    grid-row: 1;
     padding: 15px 0;
-    border-style: dotted hidden dotted hidden;
-    border-width: 2px;
+    border-top: none;
+    border-bottom: 2px dotted;
+    border-left: none;
+    border-right: none;
   }
 
   .footer.right {
     grid-column: 2;
-    grid-row: 1;
-    padding: 15px 0;
+    grid-row: 2;
+    padding: 40px 0;
   }
 
-  .footer p {
+  .copyright {
+    grid-column: 1 / 3;
+    grid-row: 3;
     font-size: 14px;
   }
 
