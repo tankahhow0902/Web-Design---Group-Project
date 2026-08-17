@@ -29,29 +29,21 @@ h2,.shop-text p {
 	margin: 50px;
 }
 :root {
-	--carousel-max-width: 1400px; 
-	--slide-gap: 60px;
-	-slide-width-percent: 70%;
-}
-/* ---------- Designer carousel: 固定接近样张的尺寸与比例 ---------- */
-:root {
-  --carousel-max-width: 1400px; /* 容器最大宽度（页面中央总宽度） */
-  --slide-gap: 80px;            /* 邻居露出宽度，样张露出较多所以设大 */
-  --slide-width-percent: 54%;   /* 中间 slide 占容器宽度的百分比（调整中间卡宽度） */
+  --carousel-max-width: 1400px;
+  --slide-gap: 80px;
+  --slide-width-percent: 54%;
 }
 
-/* 容器：居中并允许邻居露出 */
 .carousel {
   width: 100%;
   max-width: var(--carousel-max-width);
   margin: 0 auto;
   position: relative;
-  overflow: visible; /* 允许左右卡露出 */
+  overflow: visible;
   box-sizing: border-box;
-  padding: 48px 0;   /* 顶部留白与样张相似 */
+  padding: 48px 0;
 }
 
-/* track: 横向排列并使用 gap */
 .carousel-track {
   display: flex;
   gap: var(--slide-gap);
@@ -61,24 +53,22 @@ h2,.shop-text p {
   padding: 0;
 }
 
-/* 每个 slide 比容器窄，产生中间突出、两侧露出效果 */
 .carousel-track .about-designer {
   flex: 0 0 calc(var(--slide-width-percent));
   box-sizing: border-box;
-  display: flex;               /* 内部水平布局：文本 + 图 */
+  display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
   padding: 28px 36px;
-  height: 460px;              /* 固定高度，和样张接近 */
-  background: #f5f5f5;        /* 邻居卡默认浅色 */
+  height: 460px;
+  background: #f5f5f5;
   border-radius: 4px;
   transition: transform 300ms ease, background 300ms ease, box-shadow 300ms ease;
   overflow: hidden;
   position: relative;
 }
 
-/* 中间激活 slide：深色背景、放大、阴影 */
 .carousel-track .about-designer.active {
   background: #111;
   color: #fff;
@@ -86,10 +76,9 @@ h2,.shop-text p {
   box-shadow: 0 18px 40px rgba(0,0,0,0.28);
 }
 
-/* slide 内部 - 左边文字区与右边图片区的比例（文本占 44%，图片占 56%）*/
 .carousel-track .about-designer .designer-text {
   flex: 0 0 44%;
-  color: #222; /* 非 active 时用深色文字 */
+  color: #222;
   z-index: 3;
 }
 .carousel-track .about-designer .designer-text h3 {
@@ -104,7 +93,6 @@ h2,.shop-text p {
   opacity: 0.95;
 }
 
-/* 右侧图片区域：占比约 56%，图片填满区域并保持比例裁切 */
 .carousel-track .about-designer .designer-img {
   flex: 0 0 56%;
   display: flex;
@@ -114,29 +102,26 @@ h2,.shop-text p {
   margin: 0;
 }
 
-/* 图片适应：填满右侧区域并裁切（object-fit:cover）*/
 .carousel-track .about-designer .designer-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 2px;
   display: block;
-  /* active slide 时会显示额外黑边（可选），如果你不要边框可移除下一行 */
   box-shadow: 0 4px 18px rgba(0,0,0,0.12);
 }
 
-/* active（中间）slide 的文字变白，图片加深边框突出 */
 .carousel-track .about-designer.active .designer-text h3,
 .carousel-track .about-designer.active .designer-text p {
   color: #fff;
 }
 .carousel-track .about-designer.active .designer-img img {
   border: none;
-  outline: 8px solid #111; /* 视觉上类似 border，但不影响布局尺寸 */
+  outline: 8px solid #111;
   box-shadow: none;
 }
 
-/* 清除旧 margin 避免累积位移 */
+
 .about-designer { margin: 0; width: 100%; }
 
 .click-zone {
@@ -194,8 +179,8 @@ h2,.shop-text p {
 .event-card {
 	margin:20px;
 	position: relative;
-	width: 1000px;
-	height: 300px;
+	width: 1500px;
+	height: 700px;
 	overflow: hidden;
 	border-radius: 8px;
 	box-shadow: 0 4px 8px rgba(0,0,0,0.2);
@@ -207,6 +192,7 @@ h2,.shop-text p {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+	object-position: center 85%;
 }
 
 .event-card:hover {
@@ -217,12 +203,13 @@ h2,.shop-text p {
 	position: absolute;
 	bottom: 0;
 	right: 0;
+	height: 10%;
 	width: 40%;
 	background: rgba(0,0,0,0.6);
 	color: #fff;
 	text-align: center;
 	padding: 8px;
-	font-size: 16px;
+	font-size: 40px;
 	opacity: 0;
 	transition: opacity 0.3s ease;
 }
@@ -246,8 +233,7 @@ h2,.shop-text p {
   background: #fff;
   border-radius: 8px;
   padding: 20px;
-  max-width: 800px;
-  width: 80%;
+  width: 90%;
   position: relative;
 }
 
@@ -261,7 +247,24 @@ h2,.shop-text p {
   width: 100%;
   border-radius: 8px;
 }
+.modal-text {
+	margin:10px;
+}
+#modal-name {
+  font-size: clamp(18px, 2.2vw, 28px);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 12px;
+  color: #111;
+  text-align: center;
+}
 
+#modal-detail {
+  font-size: clamp(14px, 1.3vw, 18px);
+  color: #444;
+  line-height: 1.6;
+  margin: auto 5px;
+}
 .close {
   position: absolute;
   top: 10px; right: 20px;
