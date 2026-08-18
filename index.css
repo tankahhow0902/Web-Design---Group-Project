@@ -570,4 +570,12 @@ html{
   .form-content label, .form-content input {
     width: 100%;
   }
+
+  #best-seller-scroll {
+    scroll-margin-top: 90px;
+  }
+
+  #form-scroll {
+    scroll-margin-top: 120px;
+  }
 }
