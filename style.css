@@ -108,6 +108,13 @@ footer {
   margin-top: 1rem;
 }
 
+.copyright {
+  text-align: center;
+  padding: 10px 0;
+  font-size: 14px;
+  grid-column: 2 / 3;
+}
+
 .footer.left {
   padding-left: 5rem;
 }
