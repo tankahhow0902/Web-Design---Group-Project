@@ -8,6 +8,7 @@
         <link rel="icon" type="image/x-icon" href="img/logo.png">
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="index.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 
     <body>
@@ -18,9 +19,9 @@
 
         <nav>
             <div class="nav-links">
-                <a href="#form-area">链接1</a> | 
-                <a href="#">链接2</a> | 
-                <a href="#">链接3</a> 
+                <a href="#best-seller-scroll">Best Seller</a> | 
+                <a href="#banner-scroll">Collections</a> | 
+                <a href="#form-scroll">Form</a> 
             </div>
 
             <div class="nav-icons">
@@ -32,25 +33,49 @@
         </nav>
 
         <main>
-            <div class="page hero">
-                <div class="hero-text">
-                    <h2>Make Every Moment Cuddly</h2>
-                    <p>Discover our adorable collection of soft toys, perfect for gifts, comfort, and creating happy memories.</p>
-                    <a onclick="scrollToTarget('form-area')" class="btn">Shop Now</a>
+            <div class="hero">
+
+                <div class="hero-slide active">
+                    <div class="hero-text">
+                        <h2>Make Every Moment Cuddly</h2>
+                        <p>Discover our adorable collection of soft toys, perfect for gifts, comfort, and creating happy memories.</p>
+                        <a href="products.html" class="btn">Shop Now</a>
+                    </div>
+
+                    <div class="hero-image">
+                        <img src="img/hero.png" alt="Cute soft toys">
+                    </div>
                 </div>
 
-                <div class="hero-image">
-                    <img src="img/hero.png" alt="Cute soft toys">
-                </div>
-            </div>
+                <div class="hero-slide">
+                    <div class="hero-text">
+                        <h2>Stay Updated With Us</h2>
+                        <p>Register now and be the first to know about new arrivals, special offers and the latest updates.</p>
+                        <a onclick="scrollToTarget('form-area')" class="btn">Join Now</a>
+                    </div>
 
-            <div class="page best-seller">
+                    <div class="hero-image">
+                        <img src="img/hero2.png" alt="New soft toys">
+                    </div>
+                </div>
+
+                <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+                <button class="next" onclick="changeSlide(1)">&#10095;</button>
+
+                <div class="dots">
+                    <span class="dot active" onclick="showSlide(0)"></span>
+                    <span class="dot" onclick="showSlide(1)"></span>
+                </div>
+
+        </div>
+
+            <div class="best-seller" id="best-seller-scroll">
                 <h2>Best Seller</h2>
                 <div class="podium">
                     <a href="products.html#product-tanjiro" class="seller-card second">
                         <img src="img/2ndRibbon.png" alt="2nd Place Ribbon" class="ribbon">
                         <div class="seller-image">
-                            <img src="img/tanjiro_front.png" alt="Tanjiro Plush Toy">
+                            <img src="img/Tanjiro Kamado_front.png" alt="Tanjiro Plush Toy">
                         </div>
                         <h3>Tanjiro Plush Toy</h3>
                     </a>
@@ -58,7 +83,7 @@
                     <a href="products.html#product-eevee" class="seller-card first">
                         <img src="img/1stRibbon.png" alt="1st Place Ribbon" class="ribbon">
                         <div class="seller-image">
-                            <img src="img/eevee-front.png" alt="Eevee Plush Toy">
+                            <img src="img/Eevee_front.png" alt="Eevee Plush Toy">
                         </div>
                         <h3>Eevee Plush Toy</h3>
                     </a>
@@ -66,17 +91,20 @@
                     <a href="products.html#product-pikachu" class="seller-card third">
                         <img src="img/3rdRibbon.png" alt="3rd Place Ribbon" class="ribbon">
                         <div class="seller-image">
-                            <img src="img/pikachu-front.png" alt="Pikachu Plush Toy">
+                            <img src="img/Pikachu_front.png" alt="Pikachu Plush Toy">
                         </div>
                         <h3>Pikachu Plush Toy</h3>
                     </a>
                 </div>
             </div>
 
-            <div class="page banner">
+            <div class="banner" id="banner-scroll">
                 <a href="products.html#sanrio" class="series-banner">
                     <div class="banner-image s-image">
-                        <img src="#" alt="Sanrio soft toys">
+                        <img src="img/Hello Kitty_front.png" class="image-slide active" alt="Hello Kitty">
+                        <img src="img/Melody_front.png" class="image-slide" alt="Melody">
+                        <img src="img/Kuromi_front.png" class="image-slide" alt="Kuromi">
+                        <img src="img/Keroppi_front.png" class="image-slide" alt="Keroppi">
                     </div>
 
                     <div class="banner-text s-text">
@@ -92,13 +120,19 @@
                     </div>
 
                     <div class="banner-image p-image">
-                        <img src="#" alt="Pokémon soft toys">
+                        <img src="img/Pikachu_front.png" class="image-slide active" alt="Pikachu">
+                        <img src="img/Eevee_front.png" class="image-slide" alt="Eevee">
+                        <img src="img/Clodsire_front.png" class="image-slide" alt="Clodsire">
+                        <img src="img/Buneary_front.png" class="image-slide" alt="Buneary">
                     </div>
                 </a>
 
                 <a href="products.html#ds" class="series-banner">
                     <div class="banner-image d-image">
-                        <img src="#" alt="Demon Slayer soft toys">
+                        <img src="img/Tanjiro Kamado_front.png" class="image-slide active" alt="Tanjiro">
+                        <img src="img/Nezuko Kamado_front.png" class="image-slide" alt="Nezuko">
+                        <img src="img/Zenitsu Agatsuma_front.png" class="image-slide" alt="Zenitsu">
+                        <img src="img/Inosuke Hashibara_front.png" class="image-slide" alt="Inosuke">
                     </div>
 
                     <div class="banner-text d-text">
@@ -108,18 +142,21 @@
                 </a>
 
                 <a href="products.html#minecraft" class="series-banner">
-                    <div class="banner-text w-text">
+                    <div class="banner-text m-text">
                         <h2>Minecraft</h2>
                         <p>Explore a world of endless creativity and bring home your favourite Minecraft companions for every adventure.</p>
                     </div>
 
-                    <div class="banner-image w-image">
-                        <img src="#" alt="Wuthering Waves soft toys">
+                    <div class="banner-image m-image">
+                        <img src="img/Alex_front.png" class="image-slide active" alt="Alex">
+                        <img src="img/Creeper_front.png" class="image-slide" alt="Creeper">
+                        <img src="img/Sheep_front.png" class="image-slide" alt="Sheep">
+                        <img src="img/Enderman_front.png" class="image-slide" alt="Enderman">
                     </div>
                 </a>
             </div>
 
-            <div class="page form">
+            <div class="form" id="form-scroll">
                 <div class="form-image">
                     <img src="img/bear-handdown.png" alt="Bear Image" class="bear normal">
                     <img src="img/bear-handup.png" alt="Bear Pointing Image" class="bear hover">
@@ -139,7 +176,7 @@
                             <input type="email" id="email" name="email">
 
                             <label for="phone">Phone: </label>
-                            <input type="tel" id="phone" name="phone" placeholder="012-45678910" pattern="[0-9]{3}-[0-9]{7-8}" required>
+                            <input type="tel" id="phone" name="phone" placeholder="012-45678910" pattern="[0-9]{3}-[0-9]{7,8}">
 
                             <button type="submit">Join Now</button>
                         </form>

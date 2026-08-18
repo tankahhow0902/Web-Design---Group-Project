@@ -1,14 +1,14 @@
-:root {
-  --peach: #FFBE91;       /* 柔和桃色 */
-  --apricot: #FFDDB0;     /* 杏色 */
-  --cream: #FFFCE1;       /* 奶油白 */
-  --sky-blue: #CFEBFF;    /* 天空蓝 */
-  --coral: #FFB6A6;       /* 珊瑚粉 */
-  --sand: #FFEBD3;        /* 浅沙色 */
-  --mint-green: #9BCEC1;  /* 薄荷绿 */
-  --ocean-blue: #67A2C5;  /* 海洋蓝 */
-  --khaki: #DCCCAC;       /* 卡其色 */
-  --ivory: #FFF8EC;       /* 象牙白 */
+*:not(header):not(header *):not(nav):not(nav *):not(footer):not(footer *) {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  scroll-behavior: smooth;
 }
 
 /*hero*/
@@ -16,15 +16,19 @@
   display: flex;
   width: 100%;
   min-height: 500px;
+  position: relative;
+  margin-top: 0;
 }
 
 .hero-text {
   width: 30%;
-  padding: 60px;
+  padding-left: 80px;
+  padding-right: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color:  #b6d18db4;
+  background-color:  #DCF0C3;
+  position: relative;
 }
 
 .hero-text h2 {
@@ -38,8 +42,7 @@
 
 .hero-image {
   width: 70%;
-  height: 600px;
-  background-color: #333;
+  height: auto;
 }
 
 .hero-image img {
@@ -54,8 +57,8 @@
   width: fit-content;
   padding: 12px 25px;
   margin-top: 20px;
-  background-color: #EBF4DD;
-  color: #5A7863;
+  background-color: #a2cb8ba5;
+  color: #254F22;
   text-decoration: none;
   border-radius: 25px;
   font-size: 16px;
@@ -68,6 +71,84 @@
   background-color: #778873;
   color: white;
   transform: translateY(-3px);
+}
+
+.hero-slide {
+  display: none;
+  width: 100%;
+  min-height: 500px;
+}
+
+.hero-slide.active {
+  display: flex;
+}
+
+.hero-slide:nth-child(2) .hero-text {
+  background-color: #FAF7BB;
+}
+
+.hero-slide:nth-child(2) .btn {
+  background-color: #E5CB90;
+  color: #7a6040;
+}
+
+.hero-slide:nth-child(2) .btn:hover {
+  background-color: #8A7650;
+  color: white;
+}
+
+.prev,.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.496);
+  color: #5A7863;
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.prev {
+  left: 20px;
+}
+
+.next {
+  right: 20px;
+}
+
+.prev:hover,.next:hover {
+  background-color: white;
+}
+
+.dots {
+  position: absolute;
+  bottom: 20px;
+  left: 5%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.dot.active {
+  background-color: #5A7863;
+}
+
+.dot:not(.active):hover {
+  transform: scale(1.4);
 }
 
 /*best-seller*/
@@ -135,17 +216,17 @@
 }
 
 .first {
-  height: 440px;
+  height: 480px;
   background-color: #769890;
 }
 
 .second {
-  height: 370px;
+  height: 410px;
   background-color: #9cc2b9;
 }
 
 .third {
-  height: 320px;
+  height: 360px;
   background-color: #b9d9d1;
 }
 
@@ -159,18 +240,26 @@
   height: 300px;
   margin-bottom: 70px;
   text-decoration: none;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.36);
 }
 
 .banner-image {
   width: 30%;
-  background-color: #333;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.banner-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.image-slide {
+  display: none;
+  width: 60%;
+  height: auto;
+  object-fit: contain;
+}
+
+.image-slide.active {
+  display: block;
 }
 
 .banner-text {
@@ -178,25 +267,34 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  color: #000000;
   align-items: center;
-  color: black;
   padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.36);
+}
+
+.s-text, .p-text, .d-text, .m-text {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
 }
 
 .s-text {
-  background-color: #FFB6A6;
+  background-image: url("img/banner_pink.png");
 }
 
 .p-text {
-  background-color: #FFF19B;
+  background-image: url("img/banner_yellow.png");
 }
 
 .d-text {
-  background-color: #BCD9A2;
+  background-image: url("img/banner_green.png");
 }
 
-.w-text {
-  background-color: #ACBAC4;
+.m-text {
+  background-image: url("img/banner_blue.png");
 }
 
 .banner-text h2 {
@@ -205,14 +303,51 @@
 }
 
 .banner-text p {
-  font-size: 18px;
+  font-size: 20px;
+}
+
+.s-text::after, .p-text::after, .d-text::after, .m-text::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 15px 0;
+  background-color: rgba(0, 0, 0, 0.529);
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 0.3s ease;
+}
+
+.s-text::after {
+  content: "Explore Sanrio > > >";
+}
+
+.p-text::after {
+  content: "Explore Pokémon > > >";
+}
+
+.d-text::after {
+  content: "Explore Demon Slayer > > >";
+}
+
+.m-text::after {
+  content: "Explore Minecraft > > >";
+}
+
+.s-text:hover::after, .p-text:hover::after, .d-text:hover::after, .m-text:hover::after {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /*form*/
 .form {
   display: flex;
   gap: 40px;
-  padding: 0 80px 30px;
+  padding: 0 80px 70px;
 }
 
 .form-image {
@@ -236,11 +371,11 @@
   display: none;
 }
 
-.form-image:hover .normal {
+.form:has(.form-content:hover) .form-image .normal {
   display: none;
 }
 
-.form-image:hover .hover {
+.form:has(.form-content:hover) .form-image .hover {
   display: block;
 }
 
@@ -314,4 +449,44 @@
 .form-content button:hover {
   background-color: #957C62;
   transform: translateY(-3px);
+}
+
+#best-seller-scroll, #banner-scroll, #form-scroll {
+  scroll-margin-top: 55px;
+}
+
+@media (max-width: 768px) {
+  .hero-slide {
+    flex-direction: column;
+  }
+
+  .hero-image {
+    width: 100%;
+    order: 1;
+  }
+
+  .hero-text {
+    width: 100%;
+    min-height: 250px;
+    padding: 15px 30px 55px;
+    order: 2;
+  }
+
+  .hero-text h2 {
+    font-size: 26px;
+  }
+
+  .hero-text p {
+    font-size: 16px;
+  }
+
+  .prev, .next {
+    top: auto;
+    bottom: 20px;
+  }
+
+  .dots {
+    bottom: 50px;
+    left: 50%;
+  }
 }
