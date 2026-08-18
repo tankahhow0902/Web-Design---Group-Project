@@ -1,155 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="page-id" content="aboutUs">
-	<title>Fluffy Corner | Cute Soft Toys & Plush Toys Online</title>
-	<link rel="icon" type="image/x-icon" href="img/logo.png">
-	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="aboutUs.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="page-id" content="aboutUs">
+  <title>Fluffy Corner | Cute Soft Toys & Plush Toys Online</title>
+  <link rel="icon" type="image/x-icon" href="img/logo.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="aboutUs.css">
 </head>
 <body>
-	<header>
-		<img class="header-img" src="img/logo.png">
-		<h1>Fluffy Corner</h1>
-	</header>
-	<nav>
-		<div class="nav-links">
-			<a onclick="scrollToTarget('about-shop')">About Shop</a> | 
-			<a onclick="scrollToTarget('about-designers')">About Designers</a> | 
-			<a onclick="scrollToTarget('our-events')">Events</a> 
-		</div>
-		<div class="nav-icons">
-		  <a href="index.html" class="nav-img"><img src="img/home.png" alt="Home"></a>
-		  <a href="aboutUs.html" class="nav-img"><img src="img/aboutUs.png" id="active" alt="AboutUS"></a>
-		  <a href="products.html" class="nav-img"><img src="img/products.png" alt="Products"></a>
-		  <a href="cart.html" class="nav-img"><img src="img/cart.png" alt="Cart"></a>
-		</div>
-	</nav>
-
-	<main>
-	<div class="shop">
-	<h2 id="about-shop">About Shop</h2>
-		<div class="shop-img">
-			<img id="shopAutoImg" src="img/store_front.png" alt="Shop">
-		</div>
-		<div class="shop-text">
-			<p>	Our shop was build at Kajang in 2026. </p> 
-		</div>
-	</div>
-	
-	<div class="designer-slider" id="about-designers">
-	<h2>About Designers</h2>
-	<div class="click-zone left" id="prevBtn"></div>
-		<div class="carousel">
-			<div class="carousel-track">
-			<div class="about-designer">
-				<div class="designer-img">
-					<img src="img/designer1.png" alt="Designer 1">
-				</div>
-				<div class="designer-text">
-					<h3>Chiew Zi Xuan</h3>
-					<p>I'm the big boss!</p>
-				</div>
-			</div>
-
-			<div class="about-designer">
-				<div class="designer-img">
-					<img src="img/designer2.png" alt="Designer 2">
-				</div>
-				<div class="designer-text">
-					<h3>Tan Kah How</h3>
-					<p>I'm the shareholder!</p>
-				</div>
-			</div>
-
-			<div class="about-designer">
-				<div class="designer-img">
-					<img src="img/designer3.png" alt="Designer 3">
-				</div>
-				<div class="designer-text">
-					<h3>Wang Ka Hui</h3>
-					<p>I'm the CEO!</p>
-				</div>
-			</div>
-
-			<div class="about-designer">
-				<div class="designer-img">
-					<img src="img/designer4.png" alt="Designer 4">
-				</div>
-				<div class="designer-text">
-					<h3>Choo Yue Lung</h3>
-					<p>I'm the staff!</p>
-				</div>
-			</div>
-			</div>
-		</div>
-	<div class="click-zone right" id="nextBtn"></div>	
-	</div>
-
-	<div style="text-align:center" class="dots-container">
-	  <span class="dot" data-index="0"></span>
-	  <span class="dot" data-index="1"></span>
-	  <span class="dot" data-index="2"></span>
-	  <span class="dot" data-index="3"></span>
-	</div>
-	
-	<div class="events">
-	<h2 id="our-events">Events</h2>
-	  <div class="event-card" data-name="Chaji" data-detail="Fluffy Corner teamed up with Chaji for a limited-edition collaboration featuring themed drinks, exclusive plush collectibles, and designer-signed items. Enjoy on-site tastings and grab special edition merchandise—available while stocks last.">
-		<img src="img/chaji_landscape.png" alt="Chaji">
-		<div class="event-name">Chaji</div>
-	  </div>
-	  <div class="event-card" data-name="Road Show" data-detail="Join Fluffy Corner in Bukit Bintang for a pop-up event featuring designer meet-and-greets, interactive photo zones, mini workshops, and exclusive on-site discounts. Come meet the team, try activities, and shop limited-time offers.">
-		<img src="img/roadshow.png" alt="Bukit Bintang Road Show">
-		<div class="event-name">Bukit Bintang Road Show</div>
-	  </div>
-	  <div class="event-card" data-name="Pop Up Booth" data-detail="Fluffy Corner’s Japan pop-up features Japan-exclusive products, special packaging, and artist signings. Expect commemorative gift sets and limited-run collectibles available only at the event—limited quantities.">
-		<img src="img/jpnBooth.png" alt="Japan Pop Up Booth">
-		<div class="event-name">Japan Pop Up Booth</div>
-	  </div>
-	  <div class="event-card" data-name="Cosplay" data-detail="Participate in Fluffy Corner’s Cosplay event featuring a parade, judged contests, and exclusive photo zones. Winners and selected participants will receive limited-edition merch and prizes—register to perform or attend to enjoy the show.">
-		<img src="img/cosplay.png" alt="Cosplay">
-		<div class="event-name">Cosplay</div>
-	  </div>
-	</div>
-	
-	<div id="event-modal" class="event-modal">
-		 <div class="modal-content">
-			<span class="close">&times;</span>
-			<div class="modal-grid">
-				<div class="modal-img">
-					<img id="modal-image" src="" alt="">
-				</div>
-				<div class="modal-text">
-					<h3 id="modal-name"></h3>
-					<p id="modal-detail"></p>
-				</div>
-				</div>
-			</div>
-		</div>
-</main>
-
- <footer>
-    <div class="footer left"><img class="footer-img" src="img/footer.png"></div>
-    
-    <div class="footer center">
-      <h3>Contact Us</h3>
-      <span class="contact-item"><a href="tel:+601139022131"><img src="img/whatsapp.png">(+60) 11-39022131</a></span>
-      <span class="contact-item"><a href="tel:+60123456789"><img src="img/whatsapp.png">(+60) 12-3456789</a></span>
-      <p>Block C, Lot 5, Jalan Bukit, Seksyen 10, Ulu Langat,<br> 43000, Selangor</p>
+  <header>
+    <img class="header-img" src="img/logo.png" alt="Fluffy Corner">
+    <h1>Fluffy Corner</h1>
+  </header>
+  <nav>
+    <div class="nav-links">
+      <a onclick="scrollToTarget('about-shop')">About Shop</a> | 
+      <a onclick="scrollToTarget('about-designers')">About Designers</a> | 
+      <a onclick="scrollToTarget('our-events')">Events</a> 
     </div>
-    
-    <div class="footer right">
-      <h3>Follow Us</h3>
-      <span class="social-item"><a href="https://facebook.com" target="_blank"><img src="img/facebook.png">Facebook</a></span>
-      <span class="social-item"><a href="https://instagram.com" target="_blank"><img src="img/insta.png">Instagram</a></span>
+    <div class="nav-icons">
+      <a href="index.html" class="nav-img"><img src="img/home.png" alt="Home"></a>
+      <a href="aboutUs.html" class="nav-img"><img src="img/aboutUs.png" id="active" alt="AboutUS"></a>
+      <a href="products.html" class="nav-img"><img src="img/products.png" alt="Products"></a>
+      <a href="cart.html" class="nav-img"><img src="img/cart.png" alt="Cart"></a>
     </div>
-      <p class="copyright">
-        © 2026 Your Company. All rights reserved.</p>
-      </p>
-  </footer>
+  </nav>
+
+  <main>
+  <div class="shop">
+  <h2 id="about-shop">About Shop</h2>
+    <div class="shop-img">
+      <img id="shopAutoImg" src="img/store_front.png" alt="Shop">
+    </div>
+    <div class="shop-text">
+      <p>Our shop was built in Kajang in 2026.</p> 
+    </div>
+  </div>
+  
+  <div class="designer-slider" id="about-designers">
+  <h2>About Designers</h2>
+  <div class="click-zone left" id="prevBtn"></div>
+    <div class="carousel">
+      <div class="carousel-track">
+      <div class="about-designer">
+        <div class="designer-img">
+          <img src="img/designer1.png" alt="Designer 1">
+        </div>
+        <div class="designer-text">
+          <h3>Chiew Zi Xuan</h3>
+          <p>I'm the big boss!</p>
+        </div>
+      </div>
+
+      <div class="about-designer">
+        <div class="designer-img">
+          <img src="img/designer2.png" alt="Designer 2">
+        </div>
+        <div class="designer-text">
+          <h3>Tan Kah How</h3>
+          <p>I'm the shareholder!</p>
+        </div>
+      </div>
+
+      <div class="about-designer">
+        <div class="designer-img">
+          <img src="img/designer3.png" alt="Designer 3">
+        </div>
+        <div class="designer-text">
+          <h3>Wang Ka Hui</h3>
+          <p>I'm the CEO!</p>
+        </div>
+      </div>
+
+      <div class="about-designer">
+        <div class="designer-img">
+          <img src="img/designer4.png" alt="Designer 4">
+        </div>
+        <div class="designer-text">
+          <h3>Choo Yue Lung</h3>
+          <p>I'm the staff!</p>
+        </div>
+      </div>
+      </div>
+    </div>
+  <div class="click-zone right" id="nextBtn"></div>  
+  </div>
+
+  <div style="text-align:center" class="dots-container">
+    <span class="dot" data-index="0"></span>
+    <span class="dot" data-index="1"></span>
+    <span class="dot" data-index="2"></span>
+    <span class="dot" data-index="3"></span>
+  </div>
+  
+  <div class="events">
+  <h2 id="our-events">Events</h2>
+
+    <!-- Each event-card now sets --event-img-url inline for the blurred background -->
+    <div class="event-card" style="--event-img-url: url('img/chaji_landscape.png')" data-name="Chaji" data-detail="Fluffy Corner teamed up with Chaji for a limited-edition collaboration featuring themed drinks, exclusive plush collectibles, and designer-signed items. Enjoy on-site tastings and grab special edition merchandise—available while stocks last.">
+      <img src="img/chaji_landscape.png" alt="Chaji">
+      <div class="event-name">Chaji</div>
+    </div>
+
+    <div class="event-card" style="--event-img-url: url('img/roadshow.png')" data-name="Road Show" data-detail="Join Fluffy Corner in Bukit Bintang for a pop-up event featuring designer meet-and-greets, interactive photo zones, mini workshops, and exclusive on-site discounts. Come meet the team, try activities, and shop limited-time offers.">
+      <img src="img/roadshow.png" alt="Bukit Bintang Road Show">
+      <div class="event-name">Bukit Bintang Road Show</div>
+    </div>
+
+    <div class="event-card" style="--event-img-url: url('img/jpnBooth.png')" data-name="Pop Up Booth" data-detail="Fluffy Corner’s Japan pop-up features Japan-exclusive products, special packaging, and artist signings. Expect commemorative gift sets and limited-run collectibles available only at the event—limited quantities.">
+      <img src="img/jpnBooth.png" alt="Japan Pop Up Booth">
+      <div class="event-name">Japan Pop Up Booth</div>
+    </div>
+
+    <div class="event-card" style="--event-img-url: url('img/cosplay.png')" data-name="Cosplay" data-detail="Participate in Fluffy Corner’s Cosplay event featuring a parade, judged contests, and exclusive photo zones. Winners and selected participants will receive limited-edition merch and prizes—register to perform or attend to enjoy the show.">
+      <img src="img/cosplay.png" alt="Cosplay">
+      <div class="event-name">Cosplay</div>
+    </div>
+
+  </div>
+  
+  <div id="event-modal" class="event-modal" role="dialog" aria-modal="true" aria-labelledby="modal-name" aria-describedby="modal-detail">
+     <div class="modal-content">
+      <button class="close" aria-label="Close">&times;</button>
+      <div class="modal-grid">
+        <div class="modal-img">
+          <img id="modal-image" src="" alt="">
+        </div>
+        <div class="modal-text">
+          <h3 id="modal-name"></h3>
+          <p id="modal-detail"></p>
+        </div>
+      </div>
+      </div>
+    </div>
+  </main>
+
+   <footer>
+      <div class="footer left"><img class="footer-img" src="img/footer.png" alt=""></div>
+      
+      <div class="footer center">
+        <h3>Contact Us</h3>
+        <span class="contact-item"><a href="tel:+601139022131"><img src="img/whatsapp.png" alt="">(+60) 11-39022131</a></span>
+        <span class="contact-item"><a href="tel:+60123456789"><img src="img/whatsapp.png" alt="">(+60) 12-3456789</a></span>
+        <p>Block C, Lot 5, Jalan Bukit, Seksyen 10, Ulu Langat,<br> 43000, Selangor</p>
+      </div>
+      
+      <div class="footer right">
+        <h3>Follow Us</h3>
+        <span class="social-item"><a href="https://facebook.com" target="_blank" rel="noopener"><img src="img/facebook.png" alt="">Facebook</a></span>
+        <span class="social-item"><a href="https://instagram.com" target="_blank" rel="noopener"><img src="img/insta.png" alt="">Instagram</a></span>
+      </div>
+        <p class="copyright">
+          © 2026 Your Company. All rights reserved.</p>
+      </footer>
 
   <script src="script.js"></script>
   <script src="aboutUs.js"></script>

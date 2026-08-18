@@ -1,32 +1,33 @@
 /*text*/
 h2,.shop-text p {
-	text-align: center;
+  text-align: center;
 }
 
 /*about shop*/
 .shop,.designer-slider,.events {
-	margin:50px;
+  margin:50px;
 }
 .shop-img {
-	background-color:pink;
-	height:900px;
-	margin:10px 25px 25px 25px;
+  background-color:pink;
+  height:900px;
+  margin:10px 25px 25px 25px;
+  overflow: hidden;
 }
 .shop-img img{
-	height:100%;
-	width: 100%;
-	object-fit: cover;
-	transition: opacity 400ms ease; 
-	opacity: 1;
+  height:100%;
+  width: 100%;
+  object-fit: cover;
+  transition: opacity 400ms ease; 
+  opacity: 1;
 }
 .shop-img img.fade-out {
-	opacity: 0;
+  opacity: 0;
 }
 
 /*about designer*/
 .designer-slider {
-	position: relative;
-	margin: 50px;
+  position: relative;
+  margin: 50px;
 }
 :root {
   --carousel-max-width: 1400px;
@@ -151,8 +152,8 @@ h2,.shop-text p {
 
 /*dot*/
 .dots-container {
-	text-align: center;
-	margin-top: 12px;
+  text-align: center;
+  margin-top: 12px;
 }
 .dots-container .dot {
   display: inline-block;
@@ -168,56 +169,82 @@ h2,.shop-text p {
 }
 /*event*/
 .events {
-	display: grid;
-	grid-template-columns: 1fr;
-	grid-template-rows: auto auto auto;
-	gap: 20px;
-	justify-items: center;
-	margin: 40px 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 20px;
+  justify-items: center;
+  margin: 40px 0;
 }
 
 .event-card {
-	margin:20px;
-	position: relative;
-	width: 1500px;
-	height: 700px;
-	overflow: hidden;
-	border-radius: 8px;
-	box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-	cursor: pointer;
-	transition: transform 0.3s ease;
+  margin:20px;
+  position: relative;
+  width: 1500px;
+  height: 700px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  /* Optional: set image URL in HTML via inline style --
+     <div class="event-card" style="--event-img-url: url('img/chaji_landscape.png')"> */
+}
+.event-card::before {
+  /* Use a blurred cover background (optional). Add --event-img-url on the element to enable.*/
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--event-img-url);
+  background-size: cover;
+  background-position: center;
+  filter: blur(12px) saturate(0.9) brightness(0.85);
+  z-index: 0;
+  opacity: 0.55;
+  pointer-events: none;
 }
 
+/* Foreground image scaled to contain (shows whole cup); object-position tuned to focus lower area */
 .event-card img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	object-position: center 85%;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;        /* show whole image */
+  object-position: center 75%;/* tune vertical focus so cup area is visible; adjust 65%~80% as needed */
+  z-index: 1;
+  display: block;
+  max-width: none;
+  max-height: none;
 }
 
 .event-card:hover {
-	transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .event-name {
-	position: absolute;
-	bottom: 0;
-	right: 0;
-	height: 10%;
-	width: 40%;
-	background: rgba(0,0,0,0.6);
-	color: #fff;
-	text-align: center;
-	padding: 8px;
-	font-size: 40px;
-	opacity: 0;
-	transition: opacity 0.3s ease;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 10%;
+  width: 40%;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  text-align: center;
+  padding: 8px;
+  font-size: 40px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 3;
 }
 
 .event-card:hover .event-name {
-	opacity: 1;
+  opacity: 1;
 }
 
+/* Modal */
 .event-modal {
   display: none;
   position: fixed;
@@ -227,6 +254,7 @@ h2,.shop-text p {
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  padding: 20px;
 }
 
 .modal-content {
@@ -235,6 +263,10 @@ h2,.shop-text p {
   padding: 20px;
   width: 90%;
   position: relative;
+  max-width: 1100px;
+  max-height: calc(100vh - 48px);
+  overflow: auto;
+  box-sizing: border-box;
 }
 
 .modal-grid {
@@ -248,7 +280,7 @@ h2,.shop-text p {
   border-radius: 8px;
 }
 .modal-text {
-	margin:10px;
+  margin:10px;
 }
 #modal-name {
   font-size: clamp(18px, 2.2vw, 28px);
@@ -271,3 +303,218 @@ h2,.shop-text p {
   font-size: 28px;
   cursor: pointer;
 }
+
+/* ================= Fixes for mobile swipe, shop image, and modal centering ================= */
+
+/* 1) Mobile: prevent carousel from being horizontally swipeable; limit width */
+@media (max-width: 920px) {
+  /* In small screens restrict carousel overflow and prevent horizontal touch gestures */
+  .carousel {
+    overflow: hidden;            /* Prevent horizontal visible overflow/scroll */
+    touch-action: pan-y;         /* Prefer vertical panning; block horizontal */
+    -ms-touch-action: pan-y;
+    overscroll-behavior-x: none; /* Prevent horizontal inertia scroll */
+  }
+
+  .carousel-track {
+    pointer-events: auto;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+}
+
+/* 2) about shop image: show full image and reduce margins/padding so image is fully visible */
+.shop, .shop-img {
+  margin: 16px;       /* reduce outer spacing */
+  padding: 0;
+}
+
+/* Let shop-img adapt and show full image without cropping */
+.shop-img {
+  height: auto;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  overflow: hidden;
+}
+
+.shop-img img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+@media (max-width: 920px) {
+  .shop-img { max-height: 420px; }
+}
+
+/* 3) Modal centering & viewport-safe */
+.event-modal {
+  display: none; /* JS will set to 'flex' */
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.75);
+  z-index: 2000;
+  padding: 20px;
+}
+
+.modal-content {
+  max-height: 90vh;
+  overflow: auto;
+  box-sizing: border-box;
+}
+
+/* Utility: lock body scroll when modal open */
+body.modal-open {
+  overflow: hidden !important;
+}
+
+/* ----------------- Responsive / Mobile Templates ----------------- */
+/* Large tablet / small desktop adjustments */
+@media (max-width: 1200px) {
+  :root {
+    --carousel-max-width: 1100px;
+    --slide-gap: 48px;
+    --slide-width-percent: 60%;
+  }
+  .carousel-track .about-designer {
+    height: 420px;
+    padding: 22px 28px;
+  }
+  .carousel-track .about-designer .designer-img { flex: 0 0 52%; }
+  .event-card {
+    width: 100%;
+    max-width: 1000px;
+    height: 620px;
+  }
+  .shop-img { height: 600px; }
+  .modal-content { width: 92%; }
+}
+
+/* Tablet / small screens: stack things more vertically */
+@media (max-width: 920px) {
+  :root {
+    --slide-width-percent: 92%;
+    --slide-gap: 28px;
+  }
+
+  .carousel {
+    padding: 24px 0;
+  }
+  .carousel-track {
+    gap: var(--slide-gap);
+    padding: 0 12px;
+  }
+  .carousel-track .about-designer {
+    flex-direction: column;
+    height: auto;
+    padding: 18px;
+    align-items: center;
+    text-align: center;
+  }
+  .carousel-track .about-designer .designer-text { flex: 0 0 auto; width: 100%; }
+  .carousel-track .about-designer .designer-img { flex: 0 0 auto; width: 100%; height: 320px; }
+  .carousel-track .about-designer .designer-img img { width: 100%; height: 100%; object-fit: cover; }
+
+  .click-zone { width: 10%; }
+  .dots-container { margin-top: 16px; }
+
+  /* Events: single column, full-width cards */
+  .events {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .event-card {
+    width: 92%;
+    height: auto;
+    padding: 14px;
+    border-radius: 8px;
+  }
+  .event-card::before { opacity: 0.45; filter: blur(8px) brightness(0.85); }
+
+  /* For smaller screens show image as taller but remain contain */
+  .event-card img {
+    width: 100%;
+    height: 360px;
+    object-fit: contain;
+    object-position: center 78%;
+  }
+
+  .shop-img { height: 420px; }
+
+  .modal-grid { grid-template-columns: 1fr; }
+  .modal-content { padding: 14px; }
+  #modal-name { text-align: left; }
+  #modal-detail { margin: 6px 0; text-align: left; }
+}
+
+/* Mobile: phone layout */
+@media (max-width: 600px) {
+  :root {
+    --slide-width-percent: 95%;
+    --slide-gap: 18px;
+  }
+
+  body { font-size: 15px; }
+
+  h2 { font-size: 20px; margin: 18px 0; }
+
+  .carousel {
+    padding: 18px 0;
+  }
+  .carousel-track .about-designer {
+    padding: 12px;
+    gap: 12px;
+  }
+  .carousel-track .about-designer .designer-img { height: 220px; }
+  .carousel-track .about-designer .designer-img img { object-fit: cover; }
+
+  .events { margin: 12px 0; gap: 12px; }
+  .event-card {
+    width: 94%;
+    height: auto;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 12px 0;
+  }
+
+  /* On mobile, show image tall but not over-large; contain ensures whole cup is visible */
+  .event-card img {
+    width: 100%;
+    height: 320px;
+    object-fit: contain;
+    object-position: center 80%;
+  }
+  .event-card::before { display: none; } /* hide blurred bg on very small screens for perf */
+
+  .event-name {
+    position: absolute;
+    bottom: 10px;
+    right: 6px;
+    width: 46%;
+    font-size: 18px;
+    padding: 6px;
+  }
+
+  .modal-content {
+    width: 96%;
+    max-width: 640px;
+    padding: 12px;
+  }
+  .modal-grid { grid-template-columns: 1fr; gap: 12px; }
+  .modal-img img { height: auto; max-height: 360px; object-fit: cover; }
+  #modal-name { font-size: 18px; text-align: left; }
+  #modal-detail { font-size: 14px; text-align: left; margin: 8px 0; }
+  .shop-img { height: 280px; }
+}
+
+/* Utility: ensure images don't break layout */
+img { max-width: 100%; height: auto; display: block; }
