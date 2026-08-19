@@ -1,4 +1,4 @@
-/* about shop*/
+/*about shop*/
 (function() {
   const autoImgs = [
     "img/store_front.png",
@@ -10,6 +10,7 @@
   const shopImg = document.getElementById("shopAutoImg");
   if (!shopImg) return;
 
+  // preload
   autoImgs.forEach(src => { const i = new Image(); i.src = src; });
 
   let idx = 0;
@@ -23,7 +24,7 @@
   }, AUTO_INTERVAL);
 })();
 
-/* about designer*/
+/*about designer (carousel)*/
 (function() {
   const carousel = document.querySelector('.carousel');
   const track = document.querySelector('.carousel-track');
@@ -45,15 +46,14 @@
   leftClones.reverse().forEach(c => track.insertBefore(c, track.firstChild));
   rightClones.forEach(c => track.appendChild(c));
 
-  const slidesAll = Array.from(track.children);
-  let index = slideCount;
+  const slidesAll = Array.from(track.children); // now includes clones
+  let index = slideCount; // start at the first original slide inside the middle
   let isTransitioning = false;
 
   let x = 0;
   let counterInterval = null;
   const COUNTER_INTERVAL_MS = 10;
   const COUNTER_THRESHOLD = 300;
-
   function startCounter() {
     stopCounter();
     x = 0;
@@ -71,12 +71,14 @@
 
   function computeTranslatePx(forIndex) {
     const slideEl = slidesAll[forIndex];
+    if (!slideEl) return 0;
     const slideRect = slideEl.getBoundingClientRect();
     const slideWidth = slideRect.width;
     const containerWidth = carousel.getBoundingClientRect().width;
+
+    const offsetLeft = slideEl.offsetLeft || 0;
     const centerOffset = (containerWidth - slideWidth) / 2;
-    const step = slideWidth + gap;
-    return -forIndex * step + centerOffset;
+    return -offsetLeft + centerOffset;
   }
 
   function setTranslate(forIndex, instant = false) {
@@ -93,7 +95,9 @@
     updateDotsForIndex(forIndex);
   }
 
-  function initPosition() { setTranslate(index, true); }
+  function initPosition() {
+    setTimeout(() => setTranslate(index, true), 20);
+  }
 
   function next() {
     if (isTransitioning) return;
@@ -142,16 +146,19 @@
     });
   });
 
+  // prev/next click zones
   const prevBtn = document.getElementById('prevBtn') || document.querySelector('.click-zone.left');
   const nextBtn = document.getElementById('nextBtn') || document.querySelector('.click-zone.right');
   if (prevBtn) prevBtn.addEventListener('click', () => { prev(); x = 0; });
   if (nextBtn) nextBtn.addEventListener('click', () => { next(); x = 0; });
 
-  // Pause when mouse enters, resume on leave (desktop)
+  // pause on hover (desktop)
   carousel.addEventListener('mouseenter', () => stopCounter());
   carousel.addEventListener('mouseleave', () => startCounter());
 
+  // keyboard: only operate carousel when modal is not open
   window.addEventListener('keydown', (e) => {
+    if (document.body.classList.contains('modal-open')) return; // modal open -> ignore
     if (e.key === 'ArrowLeft') { prev(); x = 0; }
     if (e.key === 'ArrowRight') { next(); x = 0; }
   });
@@ -184,19 +191,20 @@
       });
     });
     Promise.all(promises).then(() => {
-      initPosition();
-      startCounter();
+      setTimeout(() => {
+        initPosition();
+        startCounter();
+      }, 30);
     });
   })();
 
 })();
 
-/*events modal (REPLACED and improved)*/
+/*events modal (full, robust)*/
 (function() {
   let modal = document.getElementById('event-modal') || document.querySelector('.event-modal');
   if (!modal) return;
 
-  // Move modal to document.body to avoid fixed positioning being clipped by transformed ancestors
   if (modal.parentElement !== document.body) {
     document.body.appendChild(modal);
   }
@@ -207,7 +215,6 @@
   const modalDetail = modal.querySelector('#modal-detail');
   const closeBtn = modal.querySelector('.close');
 
-  // Enforce safe modal root styles (fallbacks in case CSS differs)
   modal.style.position = 'fixed';
   modal.style.inset = '0';
   modal.style.display = 'none';
@@ -222,6 +229,18 @@
     modalContent.style.overflow = modalContent.style.overflow || 'auto';
     modalContent.style.boxSizing = modalContent.style.boxSizing || 'border-box';
     modalContent.style.width = modalContent.style.width || 'min(92%, 900px)';
+  }
+
+  function getScrollbarCompensation() {
+    return Math.max(0, window.innerWidth - document.documentElement.clientWidth);
+  }
+
+  function onModalKeydown(e) {
+    if (e.key === 'ArrowUp' || e.key === 'ArrowDown' || e.key === 'PageUp' || e.key === 'PageDown') {
+      e.preventDefault();
+      e.stopPropagation();
+      return;
+    }
   }
 
   function openEventModalFromCard(card) {
@@ -242,48 +261,65 @@
     if (modalName) modalName.textContent = card.dataset.name || (card.querySelector('.event-name') ? card.querySelector('.event-name').textContent : '');
     if (modalDetail) modalDetail.textContent = card.dataset.detail || card.getAttribute('data-detail') || '';
 
-    // lock body scroll using class (CSS has body.modal-open)
     document.body.classList.add('modal-open');
 
-    // scroll to top to avoid mobile fixed positioning quirks
-    try { window.scrollTo({ top: 0, left: 0, behavior: 'auto' }); } catch (e) { window.scrollTo(0,0); }
+    const compensation = getScrollbarCompensation();
+    if (compensation > 0) {
+      if (document.body.dataset.originalPaddingRight === undefined) {
+        document.body.dataset.originalPaddingRight = document.body.style.paddingRight || '';
+      }
+      const currentPaddingRight = parseFloat(getComputedStyle(document.body).paddingRight) || 0;
+      document.body.style.paddingRight = (currentPaddingRight + compensation) + 'px';
+    }
 
-    // show modal (flex centers it)
     modal.style.display = 'flex';
 
     requestAnimationFrame(() => {
       if (modalContent) {
         modalContent.scrollTop = 0;
-        modalContent.setAttribute && modalContent.setAttribute('tabindex', '-1');
-        try { modalContent.focus({ preventScroll: true }); } catch (e) {}
+        if (modalContent.setAttribute) modalContent.setAttribute('tabindex', '-1');
+        try { modalContent.focus({ preventScroll: true }); } catch (e) { /* ignore */ }
       }
     });
+
+    window.addEventListener('keydown', onModalKeydown, true);
   }
 
   function closeEventModal() {
     modal.style.display = 'none';
     document.body.classList.remove('modal-open');
-    // optional: clear image src to free memory if desired
+
+    if (document.body.dataset.originalPaddingRight !== undefined) {
+      document.body.style.paddingRight = document.body.dataset.originalPaddingRight;
+      delete document.body.dataset.originalPaddingRight;
+    } else {
+      document.body.style.paddingRight = '';
+    }
+
     if (modalImage && modalImage.tagName && modalImage.tagName.toLowerCase() === 'img') {
       modalImage.removeAttribute('src');
+      modalImage.alt = '';
     }
+
+    window.removeEventListener('keydown', onModalKeydown, true);
   }
 
-  // wire up event cards
   document.querySelectorAll('.event-card').forEach(card => {
     card.addEventListener('click', (e) => {
-      // allow links inside card to work
       if (e.target && e.target.closest && e.target.closest('a')) return;
       openEventModalFromCard(card);
     });
   });
 
-  // close handlers
   if (closeBtn) closeBtn.addEventListener('click', closeEventModal);
   modal.addEventListener('click', (e) => { if (e.target === modal) closeEventModal(); });
-  window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeEventModal(); });
 
-  // keep modal centered & sized on resize/orientationchange
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && getComputedStyle(modal).display !== 'none') {
+      closeEventModal();
+    }
+  });
+
   window.addEventListener('resize', () => {
     if (getComputedStyle(modal).display !== 'none') {
       if (modalContent) modalContent.style.maxHeight = 'calc(100vh - 48px)';
@@ -293,14 +329,12 @@
 
 })();
 
-/* media helpers (unchanged) */
+/*media helpers*/
 (function() {
-  // breakpoints
   const mql920 = window.matchMedia('(max-width: 920px)');
   const mql600 = window.matchMedia('(max-width: 600px)');
 
   function applySmallScreenStyles() {
-    // Carousel: prevent horizontal touch and hide overflow on small screens
     const carousel = document.querySelector('.carousel');
     const track = document.querySelector('.carousel-track');
     if (carousel) {
@@ -311,19 +345,16 @@
       track.style.webkitUserDrag = 'none';
     }
 
-    // Event cards: limit width to viewport-ish if CSS didn't apply yet
     document.querySelectorAll('.event-card').forEach(card => {
       card.style.width = '92%';
       card.style.maxWidth = '92%';
     });
 
-    // Shop image: cap height for small screens
     document.querySelectorAll('.shop-img').forEach(s => {
       s.style.maxHeight = '420px';
       s.style.height = 'auto';
     });
 
-    // trigger a resize so any existing resize handlers recalculate layout
     window.dispatchEvent(new Event('resize'));
   }
 
@@ -356,32 +387,25 @@
     else revertSmallScreenStyles();
   }
 
-  // initial apply
   try {
     if (mql920.matches) applySmallScreenStyles();
     else revertSmallScreenStyles();
-    // listen to changes (modern API + fallback)
+
     if (typeof mql920.addEventListener === 'function') {
       mql920.addEventListener('change', handleMql920Change);
     } else if (typeof mql920.addListener === 'function') {
       mql920.addListener(handleMql920Change);
     }
   } catch (err) {
-    // silently fail if matchMedia not supported
     console.warn('media helper: matchMedia not supported', err);
   }
 
-  // Modal centering helper: when modal becomes visible, enforce centering and focus
   const modal = document.getElementById('event-modal') || document.querySelector('.event-modal');
   if (modal) {
     const modalContent = modal.querySelector('.modal-content');
     const observer = new MutationObserver(() => {
-      // if modal is visible (style or class change), center it
       const isVisible = getComputedStyle(modal).display !== 'none' && getComputedStyle(modal).visibility !== 'hidden' && modal.offsetParent !== null;
       if (isVisible) {
-        // ensure viewport at top to avoid fixed-position quirks on mobile
-        try { window.scrollTo({ top: 0, left: 0, behavior: 'auto' }); } catch(e){ window.scrollTo(0,0); }
-        // small delay to let browser apply layout, then focus content and scroll to top
         requestAnimationFrame(() => {
           if (modalContent) {
             modalContent.scrollTop = 0;
@@ -393,7 +417,7 @@
     });
 
     observer.observe(modal, { attributes: true, attributeFilter: ['style', 'class'] });
-    // also ensure when window resizes/orientation changes and modal visible, force centering
+
     window.addEventListener('orientationchange', () => {
       if (getComputedStyle(modal).display !== 'none') {
         window.dispatchEvent(new Event('resize'));
@@ -404,7 +428,6 @@
     });
   }
 
-  // optional: ensure layout recalculation on orientation change
   window.addEventListener('orientationchange', () => {
     window.dispatchEvent(new Event('resize'));
   });
