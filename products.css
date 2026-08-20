@@ -242,6 +242,13 @@ padding-left:50px;
     font-size:18px;
   }
 
+  .add-cart {
+    font-size: 14px;
+    padding: 15px;
+    width:80px;
+    height:auto;
+  }
+
   h2 {
     font-size: clamp(18px, 5vw, 22px);
     padding-left: 30px;
