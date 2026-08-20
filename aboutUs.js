@@ -46,8 +46,8 @@
   leftClones.reverse().forEach(c => track.insertBefore(c, track.firstChild));
   rightClones.forEach(c => track.appendChild(c));
 
-  const slidesAll = Array.from(track.children); // now includes clones
-  let index = slideCount; // start at the first original slide inside the middle
+  const slidesAll = Array.from(track.children);
+  let index = slideCount;
   let isTransitioning = false;
 
   let x = 0;
@@ -158,7 +158,7 @@
 
   // keyboard: only operate carousel when modal is not open
   window.addEventListener('keydown', (e) => {
-    if (document.body.classList.contains('modal-open')) return; // modal open -> ignore
+    if (document.body.classList.contains('modal-open')) return;
     if (e.key === 'ArrowLeft') { prev(); x = 0; }
     if (e.key === 'ArrowRight') { next(); x = 0; }
   });
