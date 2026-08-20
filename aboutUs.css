@@ -464,6 +464,3 @@ h2,.shop-text p {
   #modal-detail { font-size: 14px; text-align: left; margin: 8px 0; }
   .shop-img { height: 280px; }
 }
-
-/* Utility: ensure images don't break layout */
-img { max-width: 100%; height: auto; display: block; }
